@@ -11,7 +11,7 @@ app.get("/trinkets", (req, res) => {
 
     shuffle(trinkets);
 
-    for(let i = 0; i < 5; i++ ) {
+    for(let i = 0; i < 7; i++ ) {
         let trinket = trinkets.pop();
         trinketList += `<li>${trinket}</li>`;
     }
