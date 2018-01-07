@@ -1,0 +1,24 @@
+{
+  "name": "koma-kulshan",
+  "version": "1.0.0",
+  "description": "dm tools, d&d 5e focused",
+  "main": "server.js",
+  "scripts": {
+    "build": "webpack --progress --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js --exec babel-node",
+    "serve": "node dist/server.js",
+    "watch": "webpack --config webpack.config.js --watch"
+  },
+  "author": "worc",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "nodemon": "^1.14.8"
+  }
+}
