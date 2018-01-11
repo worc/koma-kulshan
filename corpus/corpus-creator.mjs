@@ -1,7 +1,6 @@
-// uh... creates about a 600 megabytes of json array
+// creates an ~40 megabyte json array
 
 import fs from 'fs';
-import jsonStream from 'JSONStream';
 
 import weaponProp from '../minor-magic-weapon-properties.mjs';
 import weapons from '../things/weapons.mjs';
@@ -26,14 +25,6 @@ weaponList.forEach(weapon => {
 });
 
 console.log('writing stream to file');
-
-// stringify() is a default streamer for arrays
-// const streamer = jsonStream.stringify('[\n  ', ',\n  ', '\n]\n');
-// streamer.pipe(fs.createWriteStream('./minor-magic-weapons.json'));
-// corpusList.forEach(item => {
-//     streamer.write(item);
-// });
-// streamer.end();
 
 fs.writeFile('./minor-magic-weapons.json', `${JSON.stringify(corpusList, null, 2)}\n`, 'utf8', error => {
     if(error) {
