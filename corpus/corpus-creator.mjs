@@ -2,7 +2,7 @@
 
 import fs from 'fs';
 
-import weaponProp from '../minor-magic-weapon-properties.mjs';
+import weaponProp from '../properties/minor-magic-weapon-properties.mjs';
 import weapons from '../things/weapons.mjs';
 
 const weaponList = [].concat(weapons.melee.simple).concat(weapons.melee.martial).concat(weapons.ranged.simple).concat(weapons.ranged.martial);
