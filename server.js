@@ -1,6 +1,7 @@
 import express from "express";
 
 import encountersRouter from './routes/encounters.mjs';
+import minorMagicRouter from './routes/minorMagicRouter.mjs';
 
 import trinkets from './trinkets.mjs';
 import armors from './properties/minor-magic-armor-properties.mjs';
@@ -37,37 +38,31 @@ app.get("/trinkets", (req, res) => {
     `);
 });
 
-app.get('/minor-magic', (req, res) => {
-    res.status(200).send(`
-        <a href="/minor-magic/armor">armor</a>
-        <a href="/minor-magic/weapon">weapon</a>
-        <a href="/minor-magic/item">item</a>
-    `);
-});
+app.use('/minor-magic', minorMagicRouter);
 
-app.get('/minor-magic/:type', (req, res) => {
-    let propertyList = (req.params.type === 'armor') ? armors : (req.params.type === 'weapon') ? weapons : items;
-
-    let list = `<ul>`;
-
-    shuffle(armors);
-    shuffle(items);
-    shuffle(weapons);
-
-    for(let i = 0; i < 7; i++ ) {
-        let firstProperty = propertyList.pop();
-        let secondProperty = propertyList.pop();
-
-        list += `<li>${firstProperty.prefix} ${req.params.type.toUpperCase()} ${secondProperty.suffix}</li>`;
-    }
-
-
-    list += '</ul>';
-
-    res.status(200).send(`
-        ${list}
-    `)
-});
+// app.get('/minor-magic/:type', (req, res) => {
+//     let propertyList = (req.params.type === 'armor') ? armors : (req.params.type === 'weapon') ? weapons : items;
+//
+//     let list = `<ul>`;
+//
+//     shuffle(armors);
+//     shuffle(items);
+//     shuffle(weapons);
+//
+//     for(let i = 0; i < 7; i++ ) {
+//         let firstProperty = propertyList.pop();
+//         let secondProperty = propertyList.pop();
+//
+//         list += `<li>${firstProperty.prefix} ${req.params.type.toUpperCase()} ${secondProperty.suffix}</li>`;
+//     }
+//
+//
+//     list += '</ul>';
+//
+//     res.status(200).send(`
+//         ${list}
+//     `)
+// });
 
 app.use('/encounters', encountersRouter);
 
