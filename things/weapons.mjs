@@ -1,4 +1,4 @@
-export default {
+const weapons = {
     "ranged": {
         "simple": [
             {
@@ -279,3 +279,7 @@ export default {
         ]
     }
 };
+
+const weaponsFlatList = [].concat(weapons.melee.simple).concat(weapons.melee.martial).concat(weapons.ranged.simple).concat(weapons.ranged.martial);
+
+export { weapons, weaponsFlatList }
