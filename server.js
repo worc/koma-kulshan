@@ -1,24 +1,56 @@
-import express from "express";
+import express from 'express';
+import React from 'react';
+import renderToString from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom';
+
+import App from './shared/App';
 
 import encountersRouter from './routes/encounters.mjs';
 import minorMagicRouter from './routes/minorMagicRouter.mjs';
 
 import trinkets from './trinkets.mjs';
-import armors from './properties/minor-magic-armor-properties.mjs';
-import items from './properties/minor-magic-item-properties.mjs';
-import weapons from './properties/minor-magic-weapon-properties.mjs';
 
 import shuffle from './shuffle.mjs';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const renderPage = (title, app) => `
+  <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <title>${title}</title>
+      </head>
+
+      <body>
+        <header>
+          <h1>${title}</h1>
+        </header>
+        
+        <div id="app">${renderToString(app)}</div>
+        
+      </body>
+      <script src="/static/client.js"></script>
+    </html>
+  </html>
+`;
+
 app.get('/', (req, res) => {
-    res.status(200).send(`
-        <a href="/minor-magic">minor magic</a>
-        <a href="/trinkets">trinkets</a>
-        <a href="/encounters">encounters</a>
-    `);
+    let pageTitle = 'Thunder Rolling to Higher Mountainsides';
+
+    // console.log('req.headers.host: ', req.headers.host);
+
+    res.status(200).send(renderPage(pageTitle, (
+        <StaticRouter context={{}} location={req.url}>
+            <App host={req.headers.host} />
+        </StaticRouter>
+    )));
+
+    // res.status(200).send(`
+    //     <a href="/minor-magic">minor magic</a>
+    //     <a href="/trinkets">trinkets</a>
+    //     <a href="/encounters">encounters</a>
+    // `);
 });
 
 app.get("/trinkets", (req, res) => {
@@ -39,32 +71,9 @@ app.get("/trinkets", (req, res) => {
 });
 
 app.use('/minor-magic', minorMagicRouter);
-
-// app.get('/minor-magic/:type', (req, res) => {
-//     let propertyList = (req.params.type === 'armor') ? armors : (req.params.type === 'weapon') ? weapons : items;
-//
-//     let list = `<ul>`;
-//
-//     shuffle(armors);
-//     shuffle(items);
-//     shuffle(weapons);
-//
-//     for(let i = 0; i < 7; i++ ) {
-//         let firstProperty = propertyList.pop();
-//         let secondProperty = propertyList.pop();
-//
-//         list += `<li>${firstProperty.prefix} ${req.params.type.toUpperCase()} ${secondProperty.suffix}</li>`;
-//     }
-//
-//
-//     list += '</ul>';
-//
-//     res.status(200).send(`
-//         ${list}
-//     `)
-// });
-
 app.use('/encounters', encountersRouter);
+
+app.use("/static/client.js", express.static(path.join(process.cwd(), "dist/client.js")));
 
 app.listen(PORT, () => {
     console.log("Server listening on", PORT);
