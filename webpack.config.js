@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = [
-{
+    {
         name: "server",
         entry: "./server.js",
         target: "node",
@@ -23,5 +23,26 @@ module.exports = [
                 }
             ]
         },
+    }, {
+        name: 'client',
+        entry: './client.js',
+
+        output: {
+            path: path.resolve(__dirname, 'dist'),
+            filename: 'client.js',
+        },
+
+        resolve: {
+            modules: ['shared', 'node_modules']
+        },
+
+        module: {
+            rules: [
+                {
+                    test: /\.m?js$/,
+                    loader: 'babel-loader'
+                }
+            ]
+        }
     }
 ];
