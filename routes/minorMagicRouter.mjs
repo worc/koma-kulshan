@@ -30,11 +30,20 @@ router.get('/:type', (req, res) => {
         res.status(200).send(`${ minorMagicWeaponsList() }`);
     } else if (req.params.type === 'armor') {
         res.status(200).send(`${ minorMagicArmorsList() }`);
+    } else if (req.params.type === 'item') {
+        res.status(200).send(`${ minorMagicItemsList() }`);
+    } else {
+        res.status(404).send('not found');
     }
 });
 
 function minorMagicArmorsList(number = 7) {
     return minorMagicList(armors, minorMagicArmorProps, number)
+}
+
+function minorMagicItemsList(number = 7) {
+    let wellStructuredItems = items.map(item => { return { name: item }; });
+    return minorMagicList(wellStructuredItems, minorMagicItemProps, number);
 }
 
 function minorMagicWeaponsList(number = 7) {
