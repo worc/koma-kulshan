@@ -402,7 +402,7 @@ export default [
   {
     "prefix": "Shading",
     "suffix": "of Shade",
-    "description": "The bearer suffers no harm in temperatures as high as 120 degrees Fahrenheit."
+    "description": "The bearer suffers no harm in temperatures as high as boiling water."
   },
   {
     "prefix": "Shadow",
