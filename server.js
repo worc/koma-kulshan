@@ -36,7 +36,7 @@ const renderPage = (title, app) => `
   </html>
 `;
 
-app.get('/', (req, res) => {
+app.get('/:route?', (req, res) => {
     let pageTitle = 'Thunder Rolling to Higher Mountainsides';
 
     // console.log('req.headers.host: ', req.headers.host);
@@ -54,22 +54,22 @@ app.get('/', (req, res) => {
     // `);
 });
 
-app.get("/trinkets", (req, res) => {
-    let trinketList = `<ul>`;
-
-    shuffle(trinkets);
-
-    for(let i = 0; i < 7; i++ ) {
-        let trinket = trinkets.pop();
-        trinketList += `<li>${trinket}</li>`;
-    }
-
-    trinketList += '</ul>';
-
-    res.status(200).send(`
-        ${trinketList}
-    `);
-});
+// app.get("/trinkets", (req, res) => {
+//     let trinketList = `<ul>`;
+//
+//     shuffle(trinkets);
+//
+//     for(let i = 0; i < 7; i++ ) {
+//         let trinket = trinkets.pop();
+//         trinketList += `<li>${trinket}</li>`;
+//     }
+//
+//     trinketList += '</ul>';
+//
+//     res.status(200).send(`
+//         ${trinketList}
+//     `);
+// });
 
 app.use('/minor-magic', minorMagicRouter);
 app.use('/encounters', encountersRouter);
