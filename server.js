@@ -36,45 +36,18 @@ const renderPage = (title, app) => `
   </html>
 `;
 
-app.get('/:route?', (req, res) => {
-    let pageTitle = 'Thunder Rolling to Higher Mountainsides';
+app.use('/encounters', encountersRouter);
+app.use("/static/client.js", express.static(path.join(process.cwd(), "dist/client.js")));
 
-    // console.log('req.headers.host: ', req.headers.host);
+app.get('/*', (req, res) => {
+    let pageTitle = 'Thunder Rolling to Higher Mountainsides';
 
     res.status(200).send(renderPage(pageTitle, (
         <StaticRouter context={{}} location={req.url}>
             <App host={req.headers.host} />
         </StaticRouter>
     )));
-
-    // res.status(200).send(`
-    //     <a href="/minor-magic">minor magic</a>
-    //     <a href="/trinkets">trinkets</a>
-    //     <a href="/encounters">encounters</a>
-    // `);
 });
-
-// app.get("/trinkets", (req, res) => {
-//     let trinketList = `<ul>`;
-//
-//     shuffle(trinkets);
-//
-//     for(let i = 0; i < 7; i++ ) {
-//         let trinket = trinkets.pop();
-//         trinketList += `<li>${trinket}</li>`;
-//     }
-//
-//     trinketList += '</ul>';
-//
-//     res.status(200).send(`
-//         ${trinketList}
-//     `);
-// });
-
-app.use('/minor-magic', minorMagicRouter);
-app.use('/encounters', encountersRouter);
-
-app.use("/static/client.js", express.static(path.join(process.cwd(), "dist/client.js")));
 
 app.listen(PORT, () => {
     console.log("Server listening on", PORT);
