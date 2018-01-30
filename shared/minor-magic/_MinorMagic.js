@@ -13,14 +13,14 @@ import minorMagicWeaponProps from '../../properties/minor-magic-weapon-propertie
 export default ({ match }) => {
     switch (match.params.type) {
         case 'armor':
-            return MinorMagicList(armors, minorMagicArmorProps);
+            return ( <MinorMagicList objects={ armors } properties={ minorMagicArmorProps } />);
         case 'item':
             let wellStructuredItems = items.map(item => { return { name: item }; });
-            return MinorMagicList(wellStructuredItems, minorMagicItemProps);
+            return ( <MinorMagicList objects={ wellStructuredItems } properties={ minorMagicItemProps } />);
         case 'weapon':
-            return MinorMagicList(weaponsFlatList, minorMagicWeaponProps);
+            return ( <MinorMagicList objects={ weaponsFlatList } properties={ minorMagicWeaponProps } />);
         default:
-            console.error('todo, 404 not found');
-            return (<div>404 not found</div>);
+            console.error('wait what? top-level should be root for this route, but unfound second level can 404');
+            return (<div></div>);
     }
 }
