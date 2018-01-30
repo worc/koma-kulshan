@@ -8,4 +8,4 @@ render((
     <BrowserRouter>
         <App host={window.location.host} />
     </BrowserRouter>
-), document.getElementById("app"));1
+), document.getElementById("app"));
