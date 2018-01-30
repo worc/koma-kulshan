@@ -49,7 +49,7 @@ export default class MinorMagicItemWithShuffle extends React.Component {
             case 'suffix':
                 newState = { secondProperty: this.propertiesGenerator.next().value };
                 break;
-            case 'all':
+            case 'reshuffle':
                 newState = {
                     firstProperty: this.propertiesGenerator.next().value,
                     secondProperty: this.propertiesGenerator.next().value,
@@ -79,26 +79,59 @@ export default class MinorMagicItemWithShuffle extends React.Component {
     }
 
     render() {
+        let buttonHeight = {
+            height: '4rem'
+        };
+
+        let threeButtonStyle = {
+            alignItems: 'center',
+            border: '1px solid black',
+            display: 'flex',
+            flex: '1 0 auto',
+            height: '100%',
+            justifyContent: 'center'
+        };
+
         return (
-            <div>
+            <div style={{ display: 'flex', flex: '1 0 auto', flexFlow: 'column'}}>
                 <MinorMagicItem
+                    style={{ flex: '1 0 auto' }}
                     prefix={ this.state.firstProperty.prefix }
                     suffix={ this.state.secondProperty.suffix }
                     name={ this.state.name }
                     firstDescription={ this.state.firstProperty.description }
                     secondDescription={ this.state.secondProperty.description }
                 />
-                <div style={{ display: 'flex', flexFlow: 'row wrap', fontVariantCaps: 'all-small-caps', letterSpacing: '0.2rem'}}>
-                    <div style={{ flex: '1 0 100%', textAlign: 'center' }}>reshuffle</div>
+                <div
+                    style={{ display: 'flex', flex: '0 0 auto', flexFlow: 'row wrap', fontVariantCaps: 'all-small-caps', letterSpacing: '0.2rem'}}
+                    onClick={ this.reshuffleHandler.bind(this) }
+                >
+                    <div style={{
+                        border: '1px solid black',
+                        ...buttonHeight,
+                        display: 'flex',
+                        alignItems: 'center',
+                        backgroundColor: '#8d88df',
+                        color: '#fff',
+                        flex: '1 0 100%',
+                        justifyContent: 'center'
+                    }}>
+                        <div>reshuffle</div>
+                    </div>
                     <div
-                        style={{ display: 'flex', flex: '1 0 100%', flexFlow: 'row wrap', justifyContent: 'space-around' }}
-                        onClick={ this.reshuffleHandler.bind(this) }
+                        style={{
+                            alignItems: 'center',
+                            ...buttonHeight,
+                            backgroundColor: '#ace',
+                            display: 'flex',
+                            flex: '1 0 100%',
+                            flexFlow: 'row wrap',
+                            justifyContent: 'space-around'
+                        }}
                     >
-                        <div>prefix</div>
-                        <div>type</div>
-                        <div>suffix</div>
-                        <div style={{ flex: '1 0 100%', textAlign: 'center' }}>all</div>
-
+                        <div style={threeButtonStyle}><span>prefix</span></div>
+                        <div style={threeButtonStyle}><span>type</span></div>
+                        <div style={threeButtonStyle}><span>suffix</span></div>
                     </div>
                 </div>
             </div>
