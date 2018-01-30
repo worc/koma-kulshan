@@ -1,6 +1,7 @@
 import React from 'react';
 
-import MinorMagicList from './_MinorMagicList';
+// import MinorMagicList from './_MinorMagicList';
+import MinorMagicItemWithShuffle from './MinorMagicItemWithShuffle';
 
 import armors from '../../things/armors.mjs';
 import items from '../../things/items.mjs';
@@ -13,12 +14,13 @@ import minorMagicWeaponProps from '../../properties/minor-magic-weapon-propertie
 export default ({ match }) => {
     switch (match.params.type) {
         case 'armor':
-            return ( <MinorMagicList objects={ armors } properties={ minorMagicArmorProps } />);
+            // return ( <MinorMagicList objects={ armors } properties={ minorMagicArmorProps } />);
+            return ( <MinorMagicItemWithShuffle objects={ armors } properties={ minorMagicArmorProps }/> )
         case 'item':
             let wellStructuredItems = items.map(item => { return { name: item }; });
-            return ( <MinorMagicList objects={ wellStructuredItems } properties={ minorMagicItemProps } />);
+            return ( <MinorMagicItemWithShuffle objects={ wellStructuredItems } properties={ minorMagicItemProps } />);
         case 'weapon':
-            return ( <MinorMagicList objects={ weaponsFlatList } properties={ minorMagicWeaponProps } />);
+            return ( <MinorMagicItemWithShuffle objects={ weaponsFlatList } properties={ minorMagicWeaponProps } />);
         default:
             console.error('wait what? top-level should be root for this route, but unfound second level can 404');
             return (<div></div>);
