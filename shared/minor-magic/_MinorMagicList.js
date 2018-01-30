@@ -2,6 +2,8 @@ import React from 'react';
 
 import shuffle from '../../shuffle.mjs';
 
+import MinorMagicItem from './MinorMagicItem';
+
 class MinorMagicList extends React.Component {
     constructor(props) {
         super(props);
@@ -57,11 +59,13 @@ class MinorMagicList extends React.Component {
                     this.state.list.map( (item, index) => {
                         return (
                             <li key={index}>
-                                <div><h2>{item.prefix} {item.name} {item.suffix}</h2></div>
-                                <div>
-                                    <p>{item.firstDescription}</p>
-                                    <p>{item.secondDescription}</p>
-                                </div>
+                                <MinorMagicItem
+                                    prefix={ item.prefix }
+                                    suffix={ item.suffix }
+                                    name={ item.name }
+                                    firstDescription={ item.firstDescription }
+                                    secondDescription={ item.secondDescription }
+                                />
                             </li>
                         )
                     } )
