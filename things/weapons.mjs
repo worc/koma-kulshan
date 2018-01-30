@@ -3,7 +3,7 @@ const weapons = {
         "simple": [
             {
                 "type": "Crossbow, light",
-                "name": "Light Crossbow",
+                "name": "Light-Crossbow",
                 "cost": "25 gp",
                 "damage": "1d8 piercing",
                 "weight": "5 lb.",
@@ -42,7 +42,7 @@ const weapons = {
             },
             {
                 "type": "Crossbow, hand",
-                "name": "Hand Crossbow",
+                "name": "Hand-Crossbow",
                 "cost": "75 gp",
                 "damage": "1d6 piercing",
                 "weight": "3 lb.",
@@ -50,7 +50,7 @@ const weapons = {
             },
             {
                 "type": "Crossbow, heavy",
-                "name": "Heavy Crossbow",
+                "name": "Heavy-Crossbow",
                 "cost": "50 gp",
                 "damage": "1d10 piercing",
                 "weight": "18 lb.",
@@ -113,7 +113,7 @@ const weapons = {
                 "attributes": "Thrown (range 30/120)"
             }, {
                 "type": "Light Hammer",
-                "name": "Light Hammer",
+                "name": "Light-Hammer",
                 "cost": "2 gp",
                 "damage": "1d4 bludgeoning",
                 "weight": "2 lb.",
