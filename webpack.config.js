@@ -12,13 +12,13 @@ module.exports = [
         },
 
         resolve: {
-            modules: ["node_modules"]
+            modules: ['shared', 'node_modules']
         },
 
         module: {
             rules: [
                 {
-                    test: /\.mjs?$/,
+                    test: /\.m?js$/,
                     loader: "babel-loader",
                 }
             ]
