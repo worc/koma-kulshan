@@ -34,7 +34,7 @@ export default [
 }, {
   "prefix": "Arresting",
   "suffix": "of Safety",
-  "description": "Once per day, the bearer may use their reaction to reduce fall damage by 1d6 until the end of turn."
+  "description": "Once per day, the bearer may use their reaction to reduce fall damage by 1d6."
 }, {
   "prefix": "Assassin's",
   "suffix": "of the Assassin",

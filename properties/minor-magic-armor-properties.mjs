@@ -712,7 +712,7 @@ export default [
   {
     "prefix": "Fortune Teller's",
     "suffix": "of the Fortune Teller",
-    "description": "Every time you hit by a monster, you glimpse a random image of its future or past."
+    "description": "Every time you are hit by a hostile spell or attack, you may glimpse a random image of your attacker's future or past."
   },
   {
     "prefix": "Friendly",
@@ -747,7 +747,7 @@ export default [
   {
     "prefix": "Desperate",
     "suffix": "of Last Chances",
-    "description": "The bearer has advantage on perception checks when searching for items long lost in the the Swamp of Oblivion on the Plane of Earth. (DMG p. 54)."
+    "description": "The wearer has advantage on death saving throws."
   },
   {
     "prefix": "Leaping",
