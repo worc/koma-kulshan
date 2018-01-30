@@ -88,11 +88,18 @@ export default class MinorMagicItemWithShuffle extends React.Component {
                     firstDescription={ this.state.firstProperty.description }
                     secondDescription={ this.state.secondProperty.description }
                 />
-                <div onClick={ this.reshuffleHandler.bind(this) }>
-                    <div>prefix</div>
-                    <div>type</div>
-                    <div>suffix</div>
-                    <div>all</div>
+                <div style={{ display: 'flex', flexFlow: 'row wrap', fontVariantCaps: 'all-small-caps', letterSpacing: '0.2rem'}}>
+                    <div style={{ flex: '1 0 100%', textAlign: 'center' }}>reshuffle</div>
+                    <div
+                        style={{ display: 'flex', flex: '1 0 100%', flexFlow: 'row wrap', justifyContent: 'space-around' }}
+                        onClick={ this.reshuffleHandler.bind(this) }
+                    >
+                        <div>prefix</div>
+                        <div>type</div>
+                        <div>suffix</div>
+                        <div style={{ flex: '1 0 100%', textAlign: 'center' }}>all</div>
+
+                    </div>
                 </div>
             </div>
         )
