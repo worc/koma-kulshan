@@ -12,7 +12,7 @@ class App extends React.Component{
                 display: 'flex',
                 flexFlow: 'column nowrap',
                 height: '100%',
-                padding: '0px'
+                padding: '0 10px'
             }}>
                 <Header />
                 <Sidebar />

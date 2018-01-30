@@ -79,7 +79,8 @@ export default class MinorMagicItemWithShuffle extends React.Component {
     }
 
     render() {
-        let buttonHeight = {
+        let buttonCommonStyle = {
+            boxSizing: 'border-box',
             height: '4rem'
         };
 
@@ -103,12 +104,19 @@ export default class MinorMagicItemWithShuffle extends React.Component {
                     secondDescription={ this.state.secondProperty.description }
                 />
                 <div
-                    style={{ display: 'flex', flex: '0 0 auto', flexFlow: 'row wrap', fontVariantCaps: 'all-small-caps', letterSpacing: '0.2rem'}}
+                    style={{
+                        display: 'flex',
+                        flex: '0 0 auto',
+                        flexFlow: 'row wrap',
+                        fontVariantCaps: 'all-small-caps',
+                        letterSpacing: '0.2rem',
+                        margin: '0 -10px'
+                    }}
                     onClick={ this.reshuffleHandler.bind(this) }
                 >
                     <div style={{
                         border: '1px solid black',
-                        ...buttonHeight,
+                        ...buttonCommonStyle,
                         display: 'flex',
                         alignItems: 'center',
                         backgroundColor: '#8d88df',
@@ -121,7 +129,7 @@ export default class MinorMagicItemWithShuffle extends React.Component {
                     <div
                         style={{
                             alignItems: 'center',
-                            ...buttonHeight,
+                            ...buttonCommonStyle,
                             backgroundColor: '#ace',
                             display: 'flex',
                             flex: '1 0 100%',
