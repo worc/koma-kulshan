@@ -2,9 +2,11 @@ import React from 'react';
 
 export default () => {
     let style = {
+        fontSize: '0.8rem',
         fontVariantCaps: 'all-small-caps',
-        letterSpacing: '0.3rem',
-        textAlign: 'justify'
+        letterSpacing: '0.1rem',
+        padding: '1px 10px',
+        textAlign: 'justify',
     };
 
     // this takes the place of an :after pseudo class that would trigger
