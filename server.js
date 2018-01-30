@@ -7,11 +7,6 @@ import path from 'path';
 import App from './shared/App';
 
 import encountersRouter from './routes/encounters.mjs';
-import minorMagicRouter from './routes/minorMagicRouter.mjs';
-
-import trinkets from './trinkets.mjs';
-
-import shuffle from './shuffle.mjs';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,6 +14,8 @@ const PORT = process.env.PORT || 3000;
 const renderPage = (title, app) => `
   <!DOCTYPE html>
     <html lang="en">
+      <style>html, body, #app { height: 100%; margin: 0; }</style> 
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <head>
         <title>${title}</title>
       </head>
