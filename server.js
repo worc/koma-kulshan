@@ -24,12 +24,7 @@ const renderPage = (title, app) => `
       </head>
 
       <body>
-        <header>
-          <h1>${title}</h1>
-        </header>
-        
         <div id="app">${renderToString(app)}</div>
-        
       </body>
       <script src="/static/client.js"></script>
     </html>
