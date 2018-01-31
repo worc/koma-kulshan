@@ -12,7 +12,7 @@ export default class MinorMagicItem extends React.Component {
 
     render() {
         let headerStyle = {
-            fontFamily: '"Rammetto One", serif',
+            fontFamily: '"Rammetto One", cursive',
             fontSize: '1.4rem',
             fontWeight: 'normal'
         };
