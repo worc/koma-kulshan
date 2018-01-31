@@ -24,13 +24,14 @@ const renderPage = (title, app) => `
       <body>
         <div id="app">${renderToString(app)}</div>
       </body>
-      <script src="/static/client.js"></script>
+      <script src="/static/client.min.js"></script>
     </html>
   </html>
 `;
 
 app.use('/encounters', encountersRouter);
 app.use("/static/client.js", express.static(path.join(process.cwd(), "dist/client.js")));
+app.use("/static/client.min.js", express.static(path.join(process.cwd(), "dist/client.min.js")));
 
 app.get('/*', (req, res) => {
     let pageTitle = 'Thunder Rolling to Higher Mountainsides';
