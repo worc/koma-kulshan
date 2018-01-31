@@ -3,7 +3,7 @@ import { NavLink, Switch, Route } from 'react-router-dom';
 
 export default () => {
     return (
-        <div>
+        <div style={{ display: 'none' }}>
             <NavLink to="/trinkets">Trinkets</NavLink>
             <NavLink to='/minor-magic'>Minor Magic</NavLink>
             <Switch>
