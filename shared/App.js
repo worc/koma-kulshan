@@ -17,7 +17,12 @@ class App extends React.Component{
             }}>
                 <Header />
                 <Sidebar />
-                <Main style={{ display: 'flex', flexFlow: 'column', flex: '1 0 auto' }} />
+                <Main style={{
+                    display: 'flex',
+                    flexFlow: 'column',
+                    flex: '1 0 auto',
+                    marginTop: '-20px'
+                }} />
             </div>
         )
     }
