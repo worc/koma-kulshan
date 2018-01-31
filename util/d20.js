@@ -20,13 +20,13 @@ export default class d20 {
      * @return Number|Array
      */
     static roll(dice, verbose) {
-        var result = d20.verboseRoll(dice),
-            num = 0;
+        const result = d20.verboseRoll(dice);
+        let num = 0;
 
         if (verbose) {
             return result;
         } else {
-            for (var i in result) {
+            for (let i in result) {
                 num += result[i];
             }
             return num;
@@ -42,7 +42,7 @@ export default class d20 {
      * @return Array
      */
     static verboseRoll(dice) {
-        var amount = 1,
+        let amount = 1,
             mod = 0,
             results = [],
             match,
@@ -64,7 +64,7 @@ export default class d20 {
                 }
                 if (match[3]) {
                     modifiers = match[3].match(/([+-]\s*\d+)/g);
-                    for (var i = 0; i < modifiers.length; i++) {
+                    for (let i = 0; i < modifiers.length; i++) {
                         mod += parseInt(modifiers[i].replace(/\s/g, ''));
                     }
                 }
@@ -77,8 +77,8 @@ export default class d20 {
             return [];
         }
 
-        for (var i = 0; i < amount; i++) {
-            /* We dont want to ruin verbose, so we dont skip the for loop */
+        for (let i = 0; i < amount; i++) {
+            /* We don't want to ruin verbose, so we don't skip the for loop */
             if (dice !== 0) {
                 num = Math.floor(Math.random() * dice + 1);
             } else {
@@ -90,6 +90,7 @@ export default class d20 {
         results = results.sort(function (a, b) {
             return a - b;
         });
+
         if (mod != 0) {
             results.push(mod);
         }
