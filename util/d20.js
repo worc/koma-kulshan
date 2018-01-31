@@ -53,7 +53,7 @@ export default class d20 {
             throw new Error('Missing dice parameter.');
         }
 
-        if (typeof dice == 'string') {
+        if (typeof dice === 'string') {
             match = dice.match(/^\s*(\d+)?\s*d\s*(\d+)\s*(.*?)\s*$/);
             if (match) {
                 if (match[1]) {
@@ -91,7 +91,7 @@ export default class d20 {
             return a - b;
         });
 
-        if (mod != 0) {
+        if (mod !== 0) {
             results.push(mod);
         }
 
