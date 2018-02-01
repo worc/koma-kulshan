@@ -14,4 +14,12 @@ function *getFromShuffled(list) {
     }
 }
 
-export { getFromShuffled }
+function *drainFromShuffled(list) {
+    shuffle(list);
+
+    while(list.length > 0) {
+        yield list.pop();
+    }
+}
+
+export { getFromShuffled, drainFromShuffled }

@@ -1,3 +1,5 @@
+import { getFromShuffled, drainFromShuffled } from './Generators';
+
 /**
  * Confuse.js
  *
@@ -9,54 +11,66 @@
  * @licence MIT
  */
 
-/**
- * todo, obfuscate or a higher-order piece? as a generator function?
- *
- * @param message
- * @param bitmap
- * @param characters
- * @param exclude
- * @returns {string}
- */
-function obfuscate(message = '', bitmap = [], characters = '', exclude = '') {
-    return message;
+function obfuscateOne(message = '', bitmap = [], characterGenerator, exclude = []) {
+    let workingArray = message.split('');
+    let targetIndex = Math.floor(Math.random() * workingArray.length);
+
+    if(bitmap[targetIndex] === 1 && !exclude.includes(workingArray[targetIndex])) {
+        workingArray[targetIndex] = characterGenerator.next().value;
+    }
+
+    return workingArray.join('');
+}
+
+function obfuscateAll(message = '', bitmap = [], characterGenerator, exclude = []) {
+    let splitMessage = message.split('');
+
+    return bitmap.map((bit, index) => {
+        if(bit === 1 && !exclude.includes(splitMessage[index])) {
+            return characterGenerator.next().value;
+        } else {
+            return splitMessage[index];
+        }
+    }).join('');
 }
 
 export default class Confuse {
     /**
      *
      * @param listener
-     * @param message
+     * @param resolution
      * @param options
      */
-    constructor(listener = (message) => { console.log(message) }, message = '', options = {
+    constructor(listener = (message) => { console.log(message) }, resolution = '', options = {
         characters: 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz~!@#$%^&*()-+=[]{}|;:,./<>?',
         exclude: ' ',
         startBaffled: true,
         speed: 50,
     }) {
-        this.options = { options };
-
+        this.options = { ...options };
         this.listener = listener;
-        this.message = message;
-        this.bitmap = this.message.split('').map(() => (this.options.startBaffled) ? 1 : 0 );
-        this.baffling = obfuscate(this.message, this.bitmap, this.options.characters, this.options.exclude)
+        this.resolution = resolution;
+        this.baffling = resolution;
+
+        this.options.exclude = this.options.exclude.split('');
+        console.log(this.options.exclude);
+        this.options.characters = this.options.characters.split('');
+        this.characterGenerator = getFromShuffled(this.options.characters);
+        this.bitmap = this.resolution.split('').map(() => (this.options.startBaffled) ? 1 : 0 );
+
+        this.once();
     }
 
     step() {
-        // todo obfuscate as both noun and verb? and shrinking the call chain by one step?
-        // todo obfissgit (the noun)
-        // todo obfusgate (the verb)
-        // aka:
-        // this.listener(this.obfuscate) or this.listener(this.obfuscate());
-
-        this.baffling = obfuscate(this.baffling);
+        this.baffling = obfuscateOne(this.baffling, this.bitmap, this.characterGenerator, this.options.exclude);
         this.listener(this.baffling);
         return this;
     }
 
     once() {
-        // todo baffle fully and then pause
+        this.baffling = obfuscateAll(this.baffling, this.bitmap, this.characterGenerator, this.options.exclude);
+        this.listener(this.baffling);
+        return this;
     }
 
     loop() {
@@ -70,7 +84,41 @@ export default class Confuse {
         return this;
     }
 
-    resolve() {
+    decay(duration = 0) {
+        // todo, if there's extra time, stall with looping
+        // todo, if there's not enough time use a faster pace
 
+        let cycles = duration / this.options.speed || 1;
+        let splitBaffling = this.baffling.split('');
+        let splitResolution = this.resolution.split('');
+        let onBitIndices = this.bitmap.map((bit, index) => { if(bit === 1) return index });
+        let indexGenerator = drainFromShuffled(onBitIndices);
+        let pace = onBitIndices.length / cycles;
+
+        // console.log('length', onBitIndices.length);
+        // console.log('duration', duration);
+        // console.log('cycles', cycles);
+        // console.log('pace', pace);
+
+        this.interval = setInterval(() => {
+            let targetIndex = indexGenerator.next().value;
+
+            splitBaffling[targetIndex] = splitResolution[targetIndex];
+            this.bitmap[targetIndex] = 0;
+            this.baffling = splitBaffling.join('');
+            this.listener(this.baffling);
+
+            if(onBitIndices.length === 0) {
+                this.pause();
+            }
+        }, 50)
+    }
+
+    resolve(duration = 0, delay = 0) {
+        setTimeout(() => {
+            console.log('resolving');
+            this.pause();
+            this.decay(duration);
+        }, delay);
     }
 }
