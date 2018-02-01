@@ -85,6 +85,9 @@ export default class Confuse {
     }
 
     decay(duration = 0) {
+        // todo, if there's extra time, stall with looping
+        // todo, if there's not enough time use a faster pace
+
         let cycles = duration / this.options.speed || 1;
         let splitBaffling = this.baffling.split('');
         let splitResolution = this.resolution.split('');
