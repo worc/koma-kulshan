@@ -8,7 +8,6 @@ const containerStyle = {
     fontVariantCaps: 'all-small-caps',
     letterSpacing: '0.2rem',
     margin: '0 -10px',
-    width: '100%'
 };
 
 const buttonStyle = {
@@ -17,7 +16,8 @@ const buttonStyle = {
     display: 'flex',
     flex: '1 0 auto',
     height: '4rem',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    padding: '0 20px'
 };
 
 const reshuffleStyle = {
