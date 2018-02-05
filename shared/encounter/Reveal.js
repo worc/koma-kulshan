@@ -22,14 +22,16 @@ export default class Reveal extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        const confuser = new Confuse(this.listener.bind(this), nextProps.reveal, {
-            // todo let Confuse handle arrays of characters
-            characters: ["█", "▓", "▒", "░", "█", "▓", "▒", "░", "█", "▓", "▒", "░", "<", ">", "/"].join(''),
-            exclude: '. ',
-            speed: 50
-        });
+        if (nextProps.reveal !== this.state.reveal){
+            const confuser = new Confuse(this.listener.bind(this), nextProps.reveal, {
+                // todo let Confuse handle arrays of characters
+                characters: ["█", "▓", "▒", "░", "█", "▓", "▒", "░", "█", "▓", "▒", "░", "<", ">", "/"].join(''),
+                exclude: '. ',
+                speed: 50
+            });
 
-        confuser.loop().resolve(1500, 500);
+            confuser.loop().resolve(500, 500);
+        }
     }
 
     render() {
