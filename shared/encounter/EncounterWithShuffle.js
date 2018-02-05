@@ -60,7 +60,6 @@ export default class EncounterWithShuffle extends React.Component {
                 newState = { spotting: this.spottingGenerator.next().value };
                 break;
             case 'specific':
-                debugger;
                 newState = { specific: this.state.specifics[d20.roll(12) - 1]};
                 break;
             case 'motivation':
