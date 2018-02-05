@@ -1,6 +1,5 @@
 import React from 'react';
 
-// import MinorMagicList from './_MinorMagicList';
 import MinorMagicItemWithShuffle from './MinorMagicItemWithShuffle';
 
 import armors from '../../things/armors.mjs';
@@ -14,8 +13,7 @@ import minorMagicWeaponProps from '../../properties/minor-magic-weapon-propertie
 export default ({ match }) => {
     switch (match.params.type) {
         case 'armor':
-            // return ( <MinorMagicList objects={ armors } properties={ minorMagicArmorProps } />);
-            return ( <MinorMagicItemWithShuffle objects={ armors } properties={ minorMagicArmorProps }/> )
+            return ( <MinorMagicItemWithShuffle objects={ armors } properties={ minorMagicArmorProps }/> );
         case 'item':
             let wellStructuredItems = items.map(item => { return { name: item }; });
             return ( <MinorMagicItemWithShuffle objects={ wellStructuredItems } properties={ minorMagicItemProps } />);
