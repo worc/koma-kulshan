@@ -62,9 +62,9 @@ export default class Confuse {
         return this;
     }
 
-    loop(duration, delay = 0) {
+    loop(duration, pace = this.options.speed) {
         clearInterval(this.interval);
-        this.interval = setInterval(() => this.step(), this.options.speed);
+        this.interval = setInterval(() => this.step(), pace);
         if(duration) {
             setTimeout(() => clearInterval(this.interval), duration);
         }
@@ -106,11 +106,20 @@ export default class Confuse {
         return this;
     }
 
-    resolve(delay = 0) {
+    resolve(delay = 0, duration) {
+        // avoiding divide by zero scenarios by coercing a falsy 0 to a 1:
+        let cycles = duration / this.options.speed || 1;
+        let pace = (this.resolution.length > 0) ? duration / this.resolution.length : this.options.speed;
+        // this.speed = this.options.speed; // pace;
+
+        console.log(`cycles ${cycles}`);
+        console.log(`pace ${pace}`);
+        console.log(`speed ${this.speed}`);
+
         setTimeout(() => {
             clearInterval(this.interval); // todo this.pause()?
             this.strategy = Strategy.revealLeftToRightUntilDone(this.bitmap);
-            this.loop();
+            this.loop(0, pace);
             return this;
         }, delay);
     }

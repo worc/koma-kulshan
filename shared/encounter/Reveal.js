@@ -29,7 +29,7 @@ export default class Reveal extends React.Component {
             speed: 50
         });
 
-        confuser.loop().resolve(1500);
+        confuser.loop().resolve(1500, 500);
     }
 
     render() {
