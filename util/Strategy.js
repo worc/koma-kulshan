@@ -4,7 +4,6 @@ import shuffle from '../shuffle.mjs';
 export default class Strategy {
     static *revealLeftToRightUntilDone(bitmap) {
         for(let i = 0; i < bitmap.length - 1; i++) {
-            // console.log('value in LTR loop', bitmap);
             bitmap[i] = 0;
             yield bitmap;
         }
@@ -19,10 +18,7 @@ export default class Strategy {
         let value = [], done;
 
         while(!done) {
-            // console.log('value at start of RTL loop', value);
             ({ value, done } = { ...generator.next() });
-            // console.log('value from gen', value);
-            // console.log('done', done);
             // todo eeesh, but at least it's cloned this way
             // todo otherwise the shallow copy just fucks everything up
             if(done) {
@@ -71,9 +67,12 @@ export default class Strategy {
         }
     }
 
+    static *obfuscateAll(bitmap) {
+        yield Array(bitmap.length).fill(1);
+    }
+
     static *obfuscateLeftToRightUntilDone(bitmap) {
         for(let i = 0; i < bitmap.length - 1; i++) {
-            // console.log('value in LTR loop', bitmap);
             bitmap[i] = 1;
             yield bitmap;
         }
@@ -88,10 +87,7 @@ export default class Strategy {
         let value = [], done;
 
         while(!done) {
-            // console.log('value at start of RTL loop', value);
             ({ value, done } = { ...generator.next() });
-            // console.log('value from gen', value);
-            // console.log('done', done);
             // todo eeesh, but at least it's cloned this way
             // todo otherwise the shallow copy just fucks everything up
             if(done) {
@@ -113,9 +109,9 @@ export default class Strategy {
             if(revealed > 0) {
                 revealed--;
                 obfuscated++;
-                result = shuffle(Array(revealed).fill(0).concat(Array(obfuscated).fill(1)))
             }
 
+            result = shuffle(Array(revealed).fill(0).concat(Array(obfuscated).fill(1)))
             yield result;
         }
     }
@@ -164,28 +160,28 @@ export default class Strategy {
 //     }).join('');
 // }
 
-function *bitmapAll(bitmap, value) {
-    while(bitmap) {
-        yield bitmap.fill(value);
-    }
-}
-
-function *obfuscateAllBits(bitmap) {
-    let generator = bitmapAll(bitmap, 1);
-    while(bitmap) {
-        yield generator.next().value
-    }
-}
-
-function *revealAllBits(bitmap) {
-    while(bitmap) {
-        yield bitmapAll(bitmap, 0);
-    }
-}
-
-function *bitmapIterator(bitmap, value) {
-    for(let i = 0; i < bitmap.length; i++) {
-        bitmap[i] = value;
-        yield bitmap;
-    }
-}
+// function *bitmapAll(bitmap, value) {
+//     while(bitmap) {
+//         yield bitmap.fill(value);
+//     }
+// }
+//
+// function *obfuscateAllBits(bitmap) {
+//     let generator = bitmapAll(bitmap, 1);
+//     while(bitmap) {
+//         yield generator.next().value
+//     }
+// }
+//
+// function *revealAllBits(bitmap) {
+//     while(bitmap) {
+//         yield bitmapAll(bitmap, 0);
+//     }
+// }
+//
+// function *bitmapIterator(bitmap, value) {
+//     for(let i = 0; i < bitmap.length; i++) {
+//         bitmap[i] = value;
+//         yield bitmap;
+//     }
+// }
