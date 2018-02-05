@@ -20,8 +20,7 @@ class App extends React.Component{
                 <Main style={{
                     display: 'flex',
                     flexFlow: 'column',
-                    flex: '1 0 auto',
-                    marginTop: '-20px'
+                    flex: '1 0 auto'
                 }} />
             </div>
         )
