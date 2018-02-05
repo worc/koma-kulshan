@@ -28,17 +28,17 @@ const motivations = [
  * 1d2 spotting
  */
 const spottingD2 = [
-    'the party is spotted',
-    'the party is not spotted'
+    'has spotted the party',
+    'has not spotted the party'
 ];
 
 /**
  * 1d4 spotting
  */
 const spottingD4 = [
-    `the party is spotted and they've been spotted by the party`,
-    `the party is spotted and the party doesn't know it`,
-    `the party is not spotted, but they've been spotted by the party`,
+    `has spotted the party and has been spotted by the party`,
+    `has spotted the party but the party doesn't know it`,
+    `has not spotted the party, but has been spotted by the party`,
     `no one is spotted by anyone`
 ];
 

@@ -3,7 +3,7 @@
  */
 
 export default [
-    'ahead',
+    'ahead of',
     'behind',
     'above',
     'below',

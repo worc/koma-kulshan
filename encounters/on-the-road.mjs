@@ -23,10 +23,10 @@ export default [
 
             'a wounded animal that will die without immediate care',
             'a lost dog, its collar has writing on it, but it\'s not in common', //todo remember that missing one from the lost page
-            'a feral beast that attacks the party on sight',
+            'a feral beast in shackles and chains',
             'a lone horse with a saddle but no rider',
 
-            'a demon that doesn\'t want anything to do with the party',
+            'a demon in nice clothes that\'s late for an appointment',
             'a tree ent weighed down heavily by iron chains',
             'a death knight on a skeletal horse, both with concealing clothing, looking for someone',
             'a gold dragon traveling in androgynous human form',
@@ -54,7 +54,7 @@ export default [
         specific: [
             '',
             '',
-            'a high-level adventuring group that ...', //todo
+            'a party of high-level adventurers', //todo
             'a troupe silently feuding over something that happened the night before last',
 
             'a flock of buzzards perched along the road at regular intervals',
@@ -212,5 +212,23 @@ export default [
             '',
             ''
         ]
-    },
+    }, {
+        generalDescription: 'nothing at all',
+        specific: [
+            '',
+            '',
+            '',
+            '',
+
+            '',
+            '',
+            '',
+            '',
+
+            '',
+            '',
+            '',
+            ''
+        ]
+    }
 ];
