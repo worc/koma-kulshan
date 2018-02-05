@@ -42,8 +42,6 @@ export default class EncounterWithShuffle extends React.Component {
     reshuffleHandler(event) {
         let newState = {};
 
-        console.log(event.target.textContent);
-
         switch (event.target.textContent) {
             case 'direction':
                 newState = { direction: this.directionGenerator.next().value };
@@ -85,14 +83,37 @@ export default class EncounterWithShuffle extends React.Component {
     }
 
     render() {
+        const leadInStyle = {
+            fontFamily: '"Rammetto One", cursive'
+        };
+
         return (
             <div style={{ display: 'flex', flex: '1 0 auto', flexFlow: 'column' }}>
                 <div style={{ display: 'flex', flex: '1 0 auto', flexFlow: 'column', justifyContent: 'space-between', marginBottom: '20px' }}>
-                    <Reveal leadIn={`There's something out there, its direction seems to be`} reveal={ `${this.state.direction} the party`}/>
-                    <Reveal leadIn={`At first **glance** it seems that there's`} reveal={ this.state.general } />
-                    <Reveal leadIn={`It seems that ${ this.state.general }`} reveal={ this.state.spotting } />
-                    <Reveal leadIn={`As they approach, the party sees that ${ this.state.general } is **specifc**ly`} reveal={ this.state.specific } />
-                    <Reveal leadIn={`Its **motivation** seems to be to`} reveal={ this.state.motivation } />
+                    <div>
+                        <div style={ leadInStyle }>There's something out there, its direction seems to be...</div>
+                        <Reveal reveal={ this.state.direction}/>
+                    </div>
+
+                    <div>
+                        <div style={ leadInStyle }>At first glance it seems that there's...</div>
+                        <Reveal reveal={ this.state.general } />
+                    </div>
+
+                    <div>
+                        <div style={ leadInStyle }>It seems that it...</div>
+                        <Reveal reveal={ this.state.spotting } />
+                    </div>
+
+                    <div>
+                        <div style={ leadInStyle }>As they approach, the party sees that <Reveal reveal={ this.state.general } style={{ display: 'inline' }}/> is specifically...</div>
+                        <Reveal reveal={ this.state.specific } />
+                    </div>
+
+                    <div>
+                        <div style={ leadInStyle }>Its motivation seems to be to...</div>
+                        <Reveal reveal={ this.state.motivation } />
+                    </div>
                 </div>
 
                 <Reshuffle

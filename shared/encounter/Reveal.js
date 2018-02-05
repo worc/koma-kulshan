@@ -1,10 +1,6 @@
 import React from 'react';
 import Confuse from '../../util/Confuse';
 
-const leadInStyle = {
-    fontFamily: '"Rammetto One", cursive'
-};
-
 const revealStyle = {
     textAlign: 'right'
 };
@@ -36,10 +32,7 @@ export default class Reveal extends React.Component {
 
     render() {
         return (
-            <div>
-                <div style={ leadInStyle }>{ this.props.leadIn }...</div>
-                <div style={ revealStyle }>...{ this.state.reveal }</div>
-            </div>
+            <div style={{ ...revealStyle, ...this.props.style }}>{ this.state.reveal }</div>
         )
     }
 }
