@@ -73,7 +73,7 @@ export default class Confuse {
 
     // todo duration param? store the cleared interval so it can be recovered?
     pause(delay = 0) {
-        setTimeout(() => { clearInterval(this.interval); console.log('paused', delay) }, delay);
+        setTimeout(() => { clearInterval(this.interval); }, delay);
         return this;
     }
 
