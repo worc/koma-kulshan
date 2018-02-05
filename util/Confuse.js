@@ -1,4 +1,4 @@
-import { getFromShuffled, drainFromShuffled } from './Generators';
+import { getFromShuffled } from './Generators';
 import Strategy from './Strategy';
 
 /**
@@ -47,15 +47,12 @@ export default class Confuse {
 
         this.render(this.bitmap);
 
-        //todo parameterize:
-        this.strategy = Strategy.obfuscateOneBitAndShuffleUntilDone(this.bitmap);
+        // todo parameterize?
+        this.strategy = Strategy.obfuscateOneBitAndShuffleForever(this.bitmap);
     }
 
     step() {
         const { value: bitmap, done } = this.strategy.next();
-
-        console.log('done', done);
-        console.log('value', bitmap);
 
         if(done) {
             this.pause();
@@ -98,51 +95,23 @@ export default class Confuse {
     }
 
     grow(duration = -1) {
-        this.strategy = Strategy.obfuscateOneBitAndShuffleUntilDone(this.bitmap);
+        this.strategy = Strategy.obfuscateOneBitAndShuffleForever(this.bitmap);
         this.loop();
         return this;
     }
 
-    decay(duration = -1) {
-        this.strategy = Strategy.revealOneBitAndShuffleUntilDone(this.bitmap);
+    obfuscate() {
+        this.strategy = Strategy.obfuscateOneBitAndShuffleForever(this.bitmap);
         this.loop();
         return this;
-
-        // this.pause();
-        //
-        // // todo, if there's extra time, stall with looping
-        // // todo, if there's not enough time use a faster pace
-        //
-        // let cycles = duration / this.options.speed || 1;
-        // let splitBaffling = this.output.split('');
-        // let splitResolution = this.resolution.split('');
-        // let onBitIndices = this.bitmap.map((bit, index) => { if(bit === 1) return index });
-        // let indexGenerator = drainFromShuffled(onBitIndices);
-        // let pace = onBitIndices.length / cycles;
-        //
-        // // console.log('length', onBitIndices.length);
-        // // console.log('duration', duration);
-        // // console.log('cycles', cycles);
-        // // console.log('pace', pace);
-        //
-        // this.interval = setInterval(() => {
-        //     let targetIndex = indexGenerator.next().value;
-        //
-        //     splitBaffling[targetIndex] = splitResolution[targetIndex];
-        //     this.bitmap[targetIndex] = 0;
-        //     this.output = splitBaffling.join('');
-        //     this.listener(this.output);
-        //
-        //     if(onBitIndices.length === 0) {
-        //         this.pause();
-        //     }
-        // }, 50)
     }
 
-    resolve(duration = 0, delay = 0) {
+    resolve(delay = 0) {
         setTimeout(() => {
-            // this.pause();
-            this.decay(duration);
+            clearInterval(this.interval); // todo this.pause()?
+            this.strategy = Strategy.revealLeftToRightUntilDone(this.bitmap);
+            this.loop();
+            return this;
         }, delay);
     }
 }
