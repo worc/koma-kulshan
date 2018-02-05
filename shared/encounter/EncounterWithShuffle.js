@@ -87,8 +87,8 @@ export default class EncounterWithShuffle extends React.Component {
     render() {
         return (
             <div style={{ display: 'flex', flex: '1 0 auto', flexFlow: 'column' }}>
-                <div style={{ flex: '1 0 auto' }}>
-                    <Reveal leadIn={`There's something out there, its **direction** seems to be`} reveal={ `${this.state.direction} the party`}/>
+                <div style={{ display: 'flex', flex: '1 0 auto', flexFlow: 'column', justifyContent: 'space-between', marginBottom: '20px' }}>
+                    <Reveal leadIn={`There's something out there, its direction seems to be`} reveal={ `${this.state.direction} the party`}/>
                     <Reveal leadIn={`At first **glance** it seems that there's`} reveal={ this.state.general } />
                     <Reveal leadIn={`It seems that ${ this.state.general }`} reveal={ this.state.spotting } />
                     <Reveal leadIn={`As they approach, the party sees that ${ this.state.general } is **specifc**ly`} reveal={ this.state.specific } />
