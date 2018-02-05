@@ -14,12 +14,13 @@ export default class MinorMagicItem extends React.Component {
         let headerStyle = {
             fontFamily: '"Rammetto One", cursive',
             fontSize: '1.4rem',
-            fontWeight: 'normal'
+            fontWeight: 'normal',
+            margin: '0'
         };
 
         return (
             <div style={this.props.style}>
-                <div><h2 style={headerStyle}>{this.state.prefix} {this.state.name} {this.state.suffix}</h2></div>
+                <div><h2 style={ headerStyle }>{this.state.prefix} {this.state.name} {this.state.suffix}</h2></div>
 
                 <div>
                     <p>{this.state.firstDescription}</p>
