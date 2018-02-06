@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Reveal from "../Reveal";
+
 export default class MinorMagicItem extends React.Component {
     constructor(props) {
         super();
@@ -19,12 +21,16 @@ export default class MinorMagicItem extends React.Component {
         };
 
         return (
-            <div style={this.props.style}>
-                <div><h2 style={ headerStyle }>{this.state.prefix} {this.state.name} {this.state.suffix}</h2></div>
+            <div style={ this.props.style }>
+                <div><h2 style={ headerStyle }>
+                    <Reveal reveal={ this.state.prefix } />
+                    <Reveal reveal={ this.state.name } />
+                    <Reveal reveal={ this.state.suffix } />
+                </h2></div>
 
                 <div>
-                    <p>{this.state.firstDescription}</p>
-                    <p>{this.state.secondDescription}</p>
+                    <p><Reveal reveal={ this.state.firstDescription }/></p>
+                    <p><Reveal reveal={ this.state.secondDescription }/></p>
                 </div>
             </div>
         )
