@@ -16,7 +16,6 @@
   "dependencies": {
     "babel-loader": "^7.1.2",
     "babel-runtime": "^6.26.0",
-    "baffle": "^0.3.6",
     "d20": "^1.4.1",
     "express": "^4.16.2",
     "react": "^16.2.0",
