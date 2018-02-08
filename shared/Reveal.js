@@ -1,16 +1,22 @@
 import React from 'react';
-import Confuse from '../../util/Confuse';
-
-const revealStyle = {
-    textAlign: 'right'
-};
+import Confuse from '../util/Confuse';
 
 export default class Reveal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             reveal: ''
-        }
+        };
+
+        this.confuser = new Confuse(this.listener.bind(this), this.props.reveal, {
+            // todo let Confuse handle arrays of characters
+            characters: [
+                '▀▁▂▃▄▅▆▇█▉▊▋▌▍▎', // U+258x
+                '▐░▒▓▔▕▖▗▘▙▚▛▜▝▞▟', // U+259x
+            ].join(''),
+            exclude: '. ',
+            speed: 50
+        });
     }
 
     listener(message) {
@@ -18,21 +24,16 @@ export default class Reveal extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.reveal !== this.state.reveal){
-            const confuser = new Confuse(this.listener.bind(this), nextProps.reveal, {
-                // todo let Confuse handle arrays of characters
-                characters: ["█", "▓", "▒", "░", "█", "▓", "▒", "░", "█", "▓", "▒", "░", "<", ">", "/"].join(''),
-                exclude: '. ',
-                speed: 50
-            });
+        this.confuser.setResolution(nextProps.reveal);
 
-            confuser.loop().resolve(500, 500);
+        if (nextProps.reveal !== this.state.reveal) {
+            this.confuser.loop(750).resolve(750);
         }
     }
 
     render() {
         return (
-            <div style={{ ...revealStyle, ...this.props.style }}>{ this.state.reveal }</div>
+            <span style={{ ...this.props.style }}>{ this.state.reveal }</span>
         )
     }
 }
