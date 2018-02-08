@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Reveal from "../Reveal";
+import TapToReveal from "../TapToReveal";
 
 export default class MinorMagicItem extends React.Component {
     constructor(props) {
@@ -29,8 +30,8 @@ export default class MinorMagicItem extends React.Component {
                 </h2></div>
 
                 <div>
-                    <p><Reveal reveal={ this.state.firstDescription }/></p>
-                    <p><Reveal reveal={ this.state.secondDescription }/></p>
+                    <p><TapToReveal reveal={ this.state.firstDescription }/></p>
+                    <p><TapToReveal reveal={ this.state.secondDescription }/></p>
                 </div>
             </div>
         )
