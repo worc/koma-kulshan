@@ -23,8 +23,8 @@ export default class MinorMagicItem extends React.Component {
         return (
             <div style={ this.props.style }>
                 <div><h2 style={ headerStyle }>
-                    <Reveal reveal={ this.state.prefix } />
-                    <Reveal reveal={ this.state.name } />
+                    <Reveal reveal={ this.state.prefix } /><span> </span>
+                    <Reveal reveal={ this.state.name } /><span> </span>
                     <Reveal reveal={ this.state.suffix } />
                 </h2></div>
 
