@@ -2,12 +2,12 @@
  * d6 relative directions
  */
 const directions = [
-    'ahead',
-    'behind',
-    'above',
-    'below',
-    'to the left of',
-    'to the right of'
+    'ahead of the party',
+    'behind the party',
+    'above the party',
+    'below the party',
+    'to the left of the party',
+    'to the right of the party'
 ];
 
 /**
