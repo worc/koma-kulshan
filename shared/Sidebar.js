@@ -4,6 +4,8 @@ import { NavLink, Switch, Route } from 'react-router-dom';
 export default () => {
     return (
         <div style={{ display: 'none' }}>
+            <NavLink to="/encounter">Encounter</NavLink>
+            <NavLink to="/encounter/on-the-road">On the road...</NavLink>
             <NavLink to="/trinkets">Trinkets</NavLink>
             <NavLink to='/minor-magic'>Minor Magic</NavLink>
             <Switch>
