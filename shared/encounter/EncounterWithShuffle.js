@@ -97,27 +97,27 @@ export default class EncounterWithShuffle extends React.Component {
                 <div style={{ display: 'flex', flex: '1 0 auto', flexFlow: 'column', justifyContent: 'space-between', marginBottom: '20px' }}>
                     <div>
                         <div style={ leadInStyle }>There's something out there, its direction seems to be...</div>
-                        <Reveal style={ revealStyle } reveal={ this.state.direction}/>
+                        <div style={ revealStyle }><Reveal reveal={ this.state.direction}/></div>
                     </div>
 
                     <div>
                         <div style={ leadInStyle }>At first glance it seems that there's...</div>
-                        <Reveal style={ revealStyle } reveal={ this.state.general } />
+                        <div style={ revealStyle }><Reveal reveal={ this.state.general } /></div>
                     </div>
 
                     <div>
                         <div style={ leadInStyle }>It seems that it...</div>
-                        <Reveal style={ revealStyle } reveal={ this.state.spotting } />
+                        <div style={ revealStyle }><Reveal reveal={ this.state.spotting } /></div>
                     </div>
 
                     <div>
-                        <div style={ leadInStyle }>As they approach, the party sees that <Reveal style={ revealStyle } reveal={ this.state.general } style={{ display: 'inline' }}/> is specifically...</div>
-                        <Reveal style={ revealStyle } reveal={ this.state.specific } />
-                    </div>
+                        <div style={ leadInStyle }>As they approach, the party sees that <Reveal reveal={ this.state.general }/> is specifically...</div>
+                        <div style={ revealStyle }><Reveal reveal={ this.state.specific } /></div>
+                    </div>`
 
                     <div>
                         <div style={ leadInStyle }>Its motivation seems to be to...</div>
-                        <Reveal style={ revealStyle } reveal={ this.state.motivation } />
+                        <div style={ revealStyle }><Reveal reveal={ this.state.motivation } /></div>
                     </div>
                 </div>
 
