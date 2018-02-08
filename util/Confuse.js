@@ -49,9 +49,9 @@ export default class Confuse {
         // this.strategy =
     }
 
-    setResolution(resolution) {
+    setResolution(resolution, obfuscate = this.options.startBaffled) {
         this.resolution = resolution;
-        this.bitmap = Array(resolution.length).fill((this.options.startBaffled) ? 1 : 0);
+        this.bitmap = Array(resolution.length).fill((obfuscate) ? 1 : 0);
         return this;
     }
 
@@ -130,6 +130,13 @@ export default class Confuse {
 
     sizzle(duration, delay) {
         // todo y-shifted (co)sine wave? total ratio of 1s approaches 1 and then falls back to zero
+    }
+
+    obfuscate(duration = 0, delay) {
+        let pace = (this.resolution.length > 0 && duration > 0) ? duration / this.resolution.length : this.options.speed;
+        pace = (pace > this.options.speed) ? this.options.speed : pace;
+
+        this.queue(pace, Strategy.obfuscateRightToLeftUntilDone, 0, delay);
     }
 
     resolve(duration = 0, delay) {
