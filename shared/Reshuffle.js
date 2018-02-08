@@ -17,7 +17,7 @@ const buttonStyle = {
     flex: '1 0 auto',
     height: '4rem',
     justifyContent: 'center',
-    padding: '0 20px'
+    padding: '0 10px'
 };
 
 const reshuffleStyle = {
