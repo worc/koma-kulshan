@@ -4,7 +4,7 @@ import d20 from '../../util/d20';
 import { getFromShuffled } from "../../util/Generators";
 import { directions, motivations, spottingD2 } from "../../encounters/Circumstances";
 
-import Reveal from './Reveal';
+import Reveal from '../Reveal';
 import Reshuffle from '../Reshuffle';
 
 export default class EncounterWithShuffle extends React.Component {
@@ -86,33 +86,38 @@ export default class EncounterWithShuffle extends React.Component {
         const leadInStyle = {
             fontFamily: '"Rammetto One", cursive'
         };
+        
+        const revealStyle = {
+            textAlign: 'right'
+        };
 
+        // todo iterate or factor out Reveal usages here
         return (
             <div style={{ display: 'flex', flex: '1 0 auto', flexFlow: 'column' }}>
                 <div style={{ display: 'flex', flex: '1 0 auto', flexFlow: 'column', justifyContent: 'space-between', marginBottom: '20px' }}>
                     <div>
                         <div style={ leadInStyle }>There's something out there, its direction seems to be...</div>
-                        <Reveal reveal={ this.state.direction}/>
+                        <Reveal style={ revealStyle } reveal={ this.state.direction}/>
                     </div>
 
                     <div>
                         <div style={ leadInStyle }>At first glance it seems that there's...</div>
-                        <Reveal reveal={ this.state.general } />
+                        <Reveal style={ revealStyle } reveal={ this.state.general } />
                     </div>
 
                     <div>
                         <div style={ leadInStyle }>It seems that it...</div>
-                        <Reveal reveal={ this.state.spotting } />
+                        <Reveal style={ revealStyle } reveal={ this.state.spotting } />
                     </div>
 
                     <div>
-                        <div style={ leadInStyle }>As they approach, the party sees that <Reveal reveal={ this.state.general } style={{ display: 'inline' }}/> is specifically...</div>
-                        <Reveal reveal={ this.state.specific } />
+                        <div style={ leadInStyle }>As they approach, the party sees that <Reveal style={ revealStyle } reveal={ this.state.general } style={{ display: 'inline' }}/> is specifically...</div>
+                        <Reveal style={ revealStyle } reveal={ this.state.specific } />
                     </div>
 
                     <div>
                         <div style={ leadInStyle }>Its motivation seems to be to...</div>
-                        <Reveal reveal={ this.state.motivation } />
+                        <Reveal style={ revealStyle } reveal={ this.state.motivation } />
                     </div>
                 </div>
 
