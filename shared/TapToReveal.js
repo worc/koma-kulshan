@@ -9,17 +9,15 @@ export default class TapToReveal extends React.Component {
             reveal: '',
             resolution: ''
         };
+    }
 
-        this.confuser = new Confuse(this.listener.bind(this), this.props.reveal, {
+    componentDidMount() {
+        this.confuser = new Confuse(message => this.setState({ reveal: message }), this.props.reveal, {
             characters: [
                 '▀▁▂▃▄▅▆▇█▉▊▋▌▍▎', // U+258x
                 '▐░▒▓▔▕▖▗▘▙▚▛▜▝▞▟', // U+259x
             ].join(''),
         });
-    }
-
-    listener(message) {
-        this.setState({ reveal: message });
     }
 
     flip() {

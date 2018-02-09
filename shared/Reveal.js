@@ -7,8 +7,10 @@ export default class Reveal extends React.Component {
         this.state = {
             reveal: ''
         };
+    }
 
-        this.confuser = new Confuse(this.listener.bind(this), this.props.reveal, {
+    componentDidMount() {
+        this.confuser = new Confuse(message => this.setState({ reveal: message }), this.props.reveal, {
             // todo let Confuse handle arrays of characters
             characters: [
                 '▀▁▂▃▄▅▆▇█▉▊▋▌▍▎', // U+258x
@@ -19,14 +21,9 @@ export default class Reveal extends React.Component {
         });
     }
 
-    listener(message) {
-        this.setState({ reveal: message });
-    }
-
-    componentWillReceiveProps(nextProps) {
-        this.confuser.setResolution(nextProps.reveal);
-
-        if (nextProps.reveal !== this.state.reveal) {
+    componentDidUpdate(prevProps) {
+        if(prevProps.reveal !== this.props.reveal) {
+            this.confuser.setResolution(this.props.reveal);
             this.confuser.loop(750).resolve(750);
         }
     }
