@@ -73,12 +73,7 @@ export default class EncounterWithShuffle extends React.Component {
         this.setState(newState);
     }
 
-
     componentDidMount() {
-        this.setState(this.newShuffledState());
-    }
-
-    componentWillMount() {
         this.setState(this.newShuffledState());
     }
 
@@ -88,6 +83,7 @@ export default class EncounterWithShuffle extends React.Component {
         };
         
         const revealStyle = {
+            fontFamily: '"Menlo", "DejaVu Sans Mono", monospace',
             textAlign: 'right'
         };
 
@@ -96,7 +92,7 @@ export default class EncounterWithShuffle extends React.Component {
             <div style={{ display: 'flex', flex: '1 0 auto', flexFlow: 'column' }}>
                 <div style={{ display: 'flex', flex: '1 0 auto', flexFlow: 'column', justifyContent: 'space-between', marginBottom: '20px' }}>
                     <div>
-                        <div style={ leadInStyle }>There's something out there, its direction seems to be...</div>
+                        <div style={ leadInStyle }>There's something out there, its direction is...</div>
                         <div style={ revealStyle }><Reveal reveal={ this.state.direction}/></div>
                     </div>
 
@@ -106,14 +102,14 @@ export default class EncounterWithShuffle extends React.Component {
                     </div>
 
                     <div>
-                        <div style={ leadInStyle }>It seems that it...</div>
-                        <div style={ revealStyle }><Reveal reveal={ this.state.spotting } /></div>
+                        <div style={ leadInStyle }>Specifically...</div>
+                        <div style={ revealStyle }><Reveal reveal={ this.state.specific } /></div>
                     </div>
 
                     <div>
-                        <div style={ leadInStyle }>As they approach, the party sees that <Reveal reveal={ this.state.general }/> is specifically...</div>
-                        <div style={ revealStyle }><Reveal reveal={ this.state.specific } /></div>
-                    </div>`
+                        <div style={ leadInStyle }>It seems that it...</div>
+                        <div style={ revealStyle }><Reveal reveal={ this.state.spotting } /></div>
+                    </div>
 
                     <div>
                         <div style={ leadInStyle }>Its motivation seems to be to...</div>

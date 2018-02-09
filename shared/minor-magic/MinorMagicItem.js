@@ -14,11 +14,15 @@ export default class MinorMagicItem extends React.Component {
     }
 
     render() {
-        let headerStyle = {
+        const headerStyle = {
             fontFamily: '"Rammetto One", cursive',
             fontSize: '1.4rem',
             fontWeight: 'normal',
             margin: '0'
+        };
+
+        const revealStyle = {
+            fontFamily: '"Menlo", "DejaVu Sans Mono", monospace'
         };
 
         return (
@@ -30,8 +34,8 @@ export default class MinorMagicItem extends React.Component {
                 </h2></div>
 
                 <div>
-                    <p><TapToReveal reveal={ this.state.firstDescription }/></p>
-                    <p><TapToReveal reveal={ this.state.secondDescription }/></p>
+                    <p><TapToReveal style={ revealStyle } reveal={ this.state.firstDescription }/></p>
+                    <p><TapToReveal style={ revealStyle } reveal={ this.state.secondDescription }/></p>
                 </div>
             </div>
         )
