@@ -115,7 +115,8 @@ export default class Confuse {
 
     render() {
         const output = this.bitmap.map((bit, index) => {
-            return (bit === 0) ? this.resolution.substring(index, index + 1) : this.characterGenerator.next().value ;
+            let target = this.resolution.substring(index, index + 1);
+            return (bit === 0 || this.options.exclude.includes(target)) ? target : this.characterGenerator.next().value ;
         }).join('');
 
         this.emit(output);
