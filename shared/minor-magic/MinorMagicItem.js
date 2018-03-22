@@ -34,8 +34,8 @@ export default class MinorMagicItem extends React.Component {
                 </h2></div>
 
                 <div>
-                    <p><TapToReveal style={ revealStyle } reveal={ this.state.firstDescription }/></p>
-                    <p><TapToReveal style={ revealStyle } reveal={ this.state.secondDescription }/></p>
+                    <p><Reveal style={ revealStyle } reveal={ this.state.firstDescription }/></p>
+                    <p><Reveal style={ revealStyle } reveal={ this.state.secondDescription }/></p>
                 </div>
             </div>
         )
