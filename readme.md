@@ -1,6 +1,6 @@
+todo: deploy minified files only to prod
 todo: arrange items on page as 3x5 cards, with headline red line and blue lines for body of text
 todo: navigation...
-todo: deploy minified files only to prod
 todo: deploy server.min.js with client.min.js reference to prod
 
 todo: room generators
