@@ -15,7 +15,7 @@ const buttonStyle = {
     border: '1px solid black',
     display: 'flex',
     flex: '1 0 auto',
-    height: '4rem',
+    height: '3rem',
     justifyContent: 'center',
     padding: '0 10px'
 };
