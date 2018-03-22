@@ -8,7 +8,7 @@
     "minify": "webpack --progress --config webpack.config.minify.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js --exec babel-node",
-    "serve": "webpack --progress --config webpack.config.minify.js && node dist/server.min.js",
+    "serve": "node dist/server.min.js",
     "watch": "webpack --config webpack.config.js --watch"
   },
   "author": "worc",
