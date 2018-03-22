@@ -119,7 +119,7 @@ export default class EncounterWithShuffle extends React.Component {
 
                 <Reshuffle
                     reshuffleHandler={ this.reshuffleHandler.bind(this) }
-                    subShuffles={['direction', 'general', 'spotting', 'specific', 'motivation']}
+                    subShuffles={['direction', 'general', 'specific', 'spotting', 'motivation']}
                 />
             </div>
         )
