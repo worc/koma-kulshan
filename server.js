@@ -15,7 +15,10 @@ const renderPage = (title, app) => `
   <!DOCTYPE html>
     <html lang="en">
       <style>html, body, #app { height: 100%; margin: 0; }</style> 
+      <link href="/static/styles.css" rel="stylesheet" type="text/css   ">
       <link href="https://fonts.googleapis.com/css?family=Rammetto+One|Lato" rel="stylesheet">
+      <!-- testing monos -->
+      <!--<link href="https://fonts.googleapis.com/css?family=Fira+Mono|Source+Code+Pro|Nova+Mono|Overpass+Mono|Rammetto+One|Roboto+Mono|Space+Mono" rel="stylesheet">-->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <head>
         <title>${title}</title>
@@ -32,6 +35,7 @@ const renderPage = (title, app) => `
 app.use('/encounters', encountersRouter);
 app.use("/static/client.js", express.static(path.join(process.cwd(), "dist/client.js")));
 app.use("/static/client.min.js", express.static(path.join(process.cwd(), "dist/client.min.js")));
+app.use('/static/styles.css', express.static(path.join(process.cwd(), 'styles.css')));
 
 app.get('/*', (req, res) => {
     let pageTitle = 'Thunder Rolling to Higher Mountainsides';
