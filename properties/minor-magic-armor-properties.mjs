@@ -126,7 +126,7 @@ export default [
   },
   {
     "prefix": "Defensive",
-    "suffix": "of Defence",
+    "suffix": "of Defense",
     "description": "Whenever the wearer takes a dodge action, they gain +1 AC until the end of the turn."
   },
   {
@@ -562,7 +562,7 @@ export default [
   {
     "prefix": "Alarming",
     "suffix": "of Alarms",
-    "description": "Contains 1d4 unreplenishable charges of the Alarm spell (1st level)."
+    "description": "Contains 1 charge of the Alarm spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Arborean",
@@ -587,27 +587,27 @@ export default [
   {
     "prefix": "Beastspeaker's",
     "suffix": "of Beastspeakers",
-    "description": "Contains 1d4 unreplenishable charges of the Speak with Animals spell (1st level)."
+    "description": "Contains 1 charge of the Speak with Animals spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Benedictine",
     "suffix": "of Benediction",
-    "description": "Contains 1d4 unreplenishable charges of the Healing Word spell (1st level)."
+    "description": "Contains 1 charge of the Healing Word spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Blasted",
     "suffix": "of Blasting",
-    "description": "Contains 1d4 unreplenishable charges of the Fire Bolt spell (1st level)."
+    "description": "Contains 1 charge of the Fire Bolt spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Bold",
     "suffix": "of Boldness",
-    "description": "Contains 1d4 unreplenishable charges of the Heroism spell (1st level)."
+    "description": "Contains 1 charge of the Heroism spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Bountiful",
     "suffix": "of Bounty",
-    "description": "Contains 1d4 unreplenishable charges of the Goodberry spell (1st level)."
+    "description": "Contains 1 charge of the Goodberry spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Bytopian",
@@ -627,7 +627,7 @@ export default [
   {
     "prefix": "Chill",
     "suffix": "of Chills",
-    "description": "Contains 1d4 unreplenishable charges of the Ray of Frost spell (1st level)."
+    "description": "Contains 1 charge of the Ray of Frost spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Clockwork",
@@ -657,7 +657,7 @@ export default [
   {
     "prefix": "Corrosive",
     "suffix": "of Dissolving",
-    "description": "Contains 1d4 unreplenishable charges of the Acid Splash spell (1st level)."
+    "description": "Contains 1 charge of the Acid Splash spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Crawling",
