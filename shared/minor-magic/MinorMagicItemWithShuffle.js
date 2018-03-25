@@ -17,15 +17,32 @@ export default class MinorMagicItemWithShuffle extends React.Component {
             secondProperty: {},
             name: '',
             objectsIndex: 0,
-            propertiesIndex: 0
+            propertiesIndex: 0,
+            search: {
+                prefix: this.props.search.get('prefix'),
+                type: this.props.search.get('type'),
+                suffix: this.props.search.get('suffix')
+            }
         };
     }
 
     componentDidMount() {
+      let prefix = (this.state.search.prefix) ? this.props.properties.find(prop => {
+          return prop.prefix.toLowerCase() === this.state.search.prefix.toLowerCase();
+      }) : this.propertiesGenerator.next().value;
+
+      let type = (this.state.search.type) ? this.props.objects.find(thing => {
+          return thing.name.toLowerCase() === this.state.search.type.toLowerCase();
+      }) : this.objectsGenerator.next().value;
+
+      let suffix = (this.state.search.suffix) ? this.props.properties.find(prop => {
+          return prop.suffix.toLowerCase() === this.state.search.suffix.toLowerCase();
+      }) : this.propertiesGenerator.next().value;
+
         this.setState({
-            firstProperty: this.propertiesGenerator.next().value,
-            secondProperty: this.propertiesGenerator.next().value,
-            name: this.objectsGenerator.next().value.name,
+            firstProperty: prefix,
+            secondProperty: suffix,
+            name: type.name,
         });
     }
 

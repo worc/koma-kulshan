@@ -10,15 +10,17 @@ import minorMagicArmorProps from '../../properties/minor-magic-armor-properties.
 import minorMagicItemProps from '../../properties/minor-magic-item-properties.mjs';
 import minorMagicWeaponProps from '../../properties/minor-magic-weapon-properties.mjs';
 
-export default ({ match }) => {
+export default ({ match, location }) => {
+    let search = new URLSearchParams(location.search);
+
     switch (match.params.type) {
         case 'armor':
-            return ( <MinorMagicItemWithShuffle objects={ armors } properties={ minorMagicArmorProps }/> );
+            return ( <MinorMagicItemWithShuffle search={ search } objects={ armors } properties={ minorMagicArmorProps }/> );
         case 'item':
             let wellStructuredItems = items.map(item => { return { name: item }; });
-            return ( <MinorMagicItemWithShuffle objects={ wellStructuredItems } properties={ minorMagicItemProps } />);
+            return ( <MinorMagicItemWithShuffle search={ search } objects={ wellStructuredItems } properties={ minorMagicItemProps } />);
         case 'weapon':
-            return ( <MinorMagicItemWithShuffle objects={ weaponsFlatList } properties={ minorMagicWeaponProps } />);
+            return ( <MinorMagicItemWithShuffle search={ search } objects={ weaponsFlatList } properties={ minorMagicWeaponProps } />);
         default:
             console.error('wait what? top-level should be root for this route, but unfound second level can 404');
             return (<div></div>);
