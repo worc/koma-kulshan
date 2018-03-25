@@ -642,7 +642,7 @@ export default [
   {
     "prefix": "Compassionate",
     "suffix": "of Compassion",
-    "description": "Contains 1d4 unreplenishable charges of the Cure Wounds spell (1st level)."
+    "description": "Contains 1 charge of the Cure Wounds spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Concordant",
@@ -682,22 +682,22 @@ export default [
   {
     "prefix": "Exalting",
     "suffix": "of Exaltation",
-    "description": "Contains 1d4 unreplenishable charges of the Bless spell (1st level)."
+    "description": "Contains 1 charge of the Bless spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Expeditious",
     "suffix": "of Expedience",
-    "description": "Contains 1d4 unreplenishable charges of the Expeditious Retreat spell."
+    "description": "Contains 1 charge of the Expeditious Retreat spell, recharges at dawn."
   },
   {
     "prefix": "Fathoming",
     "suffix": "of Tongues",
-    "description": "Contains 1d4 unreplenishable charges of the Comprehend Languages spell."
+    "description": "Contains 1 charge of the Comprehend Languages spell, recharges at dawn."
   },
   {
     "prefix": "Feathered",
     "suffix": "of Feathers",
-    "description": "Contains 1d4 unreplenishable charges of the Feather Fall spell (1st level)."
+    "description": "Contains 1 charge of the Feather Fall spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Feybound",
@@ -717,7 +717,7 @@ export default [
   {
     "prefix": "Friendly",
     "suffix": "of Friendship",
-    "description": "Contains 1d4 unreplenishable charges of the Animal Friendship spell (1st level)."
+    "description": "Contains 1 charge of the Animal Friendship spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Gehennan",
@@ -752,7 +752,7 @@ export default [
   {
     "prefix": "Leaping",
     "suffix": "of Leaping",
-    "description": "Contains 1d4 unreplenishable charges of the Jump spell (1st level)."
+    "description": "Contains 1 charge of the Jump spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Liar's",
@@ -772,7 +772,7 @@ export default [
   {
     "prefix": "Malediction",
     "suffix": "of Malediction",
-    "description": "Contains 1d4 unreplenishable charges of the Bane spell(1st level)."
+    "description": "Contains 1 charge of the Bane spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Manipulating",
@@ -782,7 +782,7 @@ export default [
   {
     "prefix": "Master's",
     "suffix": "of Servants",
-    "description": "Contains 1d4 unreplenishable charges of the Unseen Servant spell (1st level)."
+    "description": "Contains 1 charge of the Unseen Servant spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Maverick",
@@ -812,12 +812,12 @@ export default [
   {
     "prefix": "Natural",
     "suffix": "of Nature",
-    "description": "Contains 1d4 unreplenishable charges of the Locate Animals or Plants spell (1st level)."
+    "description": "Contains 1 charge of the Locate Animals or Plants spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Neutralizing",
     "suffix": "of Neutrality",
-    "description": "Contains 1d4 unreplenishable charges of the Protection from Good and Evil spell (1st level)."
+    "description": "Contains 1 charge of the Protection from Good and Evil spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Nourishing",
@@ -842,7 +842,7 @@ export default [
   {
     "prefix": "Revealing",
     "suffix": "of Revelation",
-    "description": "Contains 1d4 unreplenishable charges of the Detect Magic spell (1st level)."
+    "description": "Contains 1 charge of the Detect Magic spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Riutal",
@@ -857,7 +857,7 @@ export default [
   {
     "prefix": "Secret",
     "suffix": "of Secrets",
-    "description": "Contains 1d4 unreplenishable charges of the Illusory Script spell (1st level)."
+    "description": "Contains 1 charge of the Illusory Script spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Shadowbound",
@@ -867,7 +867,7 @@ export default [
   {
     "prefix": "Shielding",
     "suffix": "of Shielding",
-    "description": "This item contains 1d4 unreplenishable charges of the Shield spell."
+    "description": "This item contains 1 charge of the Shield spell, recharges at dawn."
   },
   {
     "prefix": "Smith's",
@@ -882,7 +882,7 @@ export default [
   {
     "prefix": "Striding",
     "suffix": "of Strides",
-    "description": "Contains 1d4 unreplenishable charges of the Longstrider spell (1st level)."
+    "description": "Contains 1 charge of the Longstrider spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Translucent",

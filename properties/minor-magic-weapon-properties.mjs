@@ -337,7 +337,7 @@ export default [
   {
     "prefix": "Friendly",
     "suffix": "of Friendship",
-    "description": "Contains 1d4 unreplenishable charges of the Animal Friendship spell (1st level)."
+    "description": "Contains 1 charge of the Animal Friendship spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Frozen",
@@ -442,12 +442,12 @@ export default [
   {
     "prefix": "Leaping",
     "suffix": "of Leaping",
-    "description": "Contains 1d4 unreplenishable charges of the Jump spell (1st level)."
+    "description": "Contains 1 charge of the Jump spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Liar's",
     "suffix": "of Lies",
-    "description": "Contains 1d4 unreplenishable charges of the Silent Image spell (1st level)."
+    "description": "Contains 1 charge of the Silent Image spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Mage Killer's",
@@ -457,7 +457,7 @@ export default [
   {
     "prefix": "Malediction",
     "suffix": "of Malediction",
-    "description": "Contains 1d4 unreplenishable charges of the Bane spell(1st level)."
+    "description": "Contains 1 charge of the Bane spell(1st level), recharges at dawn."
   },
   {
     "prefix": "Maligning",
@@ -477,7 +477,7 @@ export default [
   {
     "prefix": "Master's",
     "suffix": "of Servants",
-    "description": "Contains 1d4 unreplenishable charges of the Unseen Servant spell (1st level)."
+    "description": "Contains 1 charge of the Unseen Servant spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Meadowforged",
@@ -662,7 +662,7 @@ export default [
   {
     "prefix": "Shielding",
     "suffix": "of Shielding",
-    "description": "This item contains 1d4 unreplenishable charges of the Shield spell."
+    "description": "This item contains 1 charge of the Shield spell, recharges at dawn."
   },
   {
     "prefix": "Skyward",
@@ -727,7 +727,7 @@ export default [
   {
     "prefix": "Striding",
     "suffix": "of Strides",
-    "description": "Contains 1d4 unreplenishable charges of the Longstrider spell (1st level)."
+    "description": "Contains 1 charge of the Longstrider spell (1st level), recharges at dawn."
   },
   {
     "prefix": "Summer",
