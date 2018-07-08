@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
     res.status(200).send(`
     <ul>
         <li><a href="/encounters/on-the-road">on the road</a></li>
+        <li><a href="/encounters/in-the-desert">in the desert road</a></li>
     </ul>
     `)
 });

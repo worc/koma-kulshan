@@ -13,7 +13,10 @@ export default () => {
                 <Switch>
                     <Route path='/encounter' render={() => {
                         return (
-                            <NavLink to='/encounter/on-the-road'>On the road...</NavLink>
+                            <div>
+                                <NavLink to='/encounter/on-the-road'>On the road...</NavLink>
+                                <NavLink to='/encounter/in-the-desert'>In the desert...</NavLink>
+                            </div>
                         )
                     }
                     }/>

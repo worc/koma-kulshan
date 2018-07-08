@@ -28,11 +28,11 @@ nav a.active {
 
 }
 
-#subnav {
+#subnav div {
     justify-content: flex-end;
 }
 
-#subnav a {
+#subnav div a {
     flex: 0 0 auto;
     padding: 0 15px;
 }
