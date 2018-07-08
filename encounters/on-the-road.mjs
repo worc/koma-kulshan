@@ -1,7 +1,3 @@
-/**
- *
- */
-
 // let example = [
 //     {
 //         generalDescription: 'individual',
@@ -59,14 +55,14 @@ export default [
 
 
             'a flock of buzzards perched along the road at regular intervals',
-            '',
-            '',
+            // '',
+            // '',
             'bear cubs shadowed distantly by their mother',
 
-            '',
-            '',
-            '',
-            ''
+            // '',
+            // '',
+            // '',
+            // ''
         ]
     }, {
         generalDescription: 'a large group',
@@ -76,90 +72,94 @@ export default [
             'an undisciplined levy doing field maneuvers',
             'a heavily guarded merchant caravan heading to market',
 
-            '',
-            '',
-            '',
-            '',
+            // '',
+            // '',
+            // '',
+            // '',
 
             'a traveling circus specializing in creatures from other planes',
-            '',
-            '',
-            ''
+            // '',
+            // '',
+            // ''
         ]
     },
+    // {
+    //     generalDescription: 'a checkpoint',
+    //     specific: [
+    //         '',
+    //         '',
+    //         '',
+    //         '',
+    //
+    //         '',
+    //         '',
+    //         '',
+    //         '',
+    //
+    //         '',
+    //         '',
+    //         '',
+    //         ''
+    //     ]
+    // },
     {
-        generalDescription: 'a checkpoint',
-        specific: [
-            '',
-            '',
-            '',
-            '',
-
-            '',
-            '',
-            '',
-            '',
-
-            '',
-            '',
-            '',
-            ''
-        ]
-    }, {
         generalDescription: 'an ambush',
         specific: [
-            '',
-            '',
-            '',
+            // '',
+            // '',
+            // '',
             'an overturned cart',
 
-            '',
-            '',
-            '',
-            '',
+            // '',
+            // '',
+            // '',
+            // '',
 
-            '',
-            '',
-            '',
-            ''
+            // '',
+            // '',
+            // '',
+            // ''
         ]
-    }, {
-        generalDescription: 'something peculiar',
-        specific: [
-            '',
-            '',
-            '',
-            '',
-
-            '',
-            '',
-            '',
-            '',
-
-            '',
-            '',
-            '',
-            ''
-        ]
-    }, {
+    },
+    // {
+    //     generalDescription: 'something peculiar',
+    //     specific: [
+    //         '',
+    //         '',
+    //         '',
+    //         '',
+    //
+    //         '',
+    //         '',
+    //         '',
+    //         '',
+    //
+    //         '',
+    //         '',
+    //         '',
+    //         ''
+    //     ]
+    // },
+    {
         generalDescription: 'an establishment',
         specific: [
             'a bar counter and some chairs set out by the road',
-            '',
+            // '',
             'a traveling merchant who broke down on the road and never left',
             'a quiet roadside tavern with only old people inside',
 
-            '',
-            '',
-            '',
-            '',
+            'a number of termite mounds',
+            // '',
+            // '',
+            // '',
 
             'a lone shop offering arcane and mystical wares',
             'a large inn (with finished basement) floating 30 feet over the ground',
             'a stone hunting lodge for cross-planar individuals',
             ''
         ]
-    }, {
+    },
+    {
         generalDescription: 'a ruin',
         specific: [
             'a very recently abandoned campsite',
@@ -169,65 +169,70 @@ export default [
 
             'a rotting tree house currently in use by small animals',
             'a fallen hill fort full of bats',
-            '',
+            // '',
             'a tattered big top tent and empty animal cages',
 
             'an immaculate but otherwise empty watchtower',
             'an empty summer home displaced from the feywild',
-            '',
-            ''
+            // '',
+            // ''
         ]
-    }, {
+    },
+    {
         generalDescription: 'some weather',
         specific: [
-            '',
-            '',
-            '',
-            '',
+            'a light rain that brings a chill to the air',
+            'a bright and clear sky that hurts to look at',
+            'an overcast sky suddenly drawn over the sky',
+            'a strong wind that threatens to tear away hats and cloaks',
 
-            '',
-            '',
-            '',
-            '',
+            'a thick fog that obscures distant landmarks and the road ahead',
+            'a heavy downpour that quickly builds into a flash flood',
+            'flashes of lightning and thunder rolling to higher mountainsides',
+            'a number of funnel clouds touching down in the near distance',
 
-            '',
-            '',
-            '',
-            ''
+            'wind coming from two different directions',
+            'an unforecast solar eclipse that stops progressing at totality',
+            'a drizzle of blood followed by meat hail',
+            'a complete and total stillness of the air and sky'
         ]
-    }, {
-        generalDescription: 'a crisis',
-        specific: [
-            '',
-            '',
-            '',
-            '',
-
-            '',
-            '',
-            '',
-            '',
-
-            '',
-            '',
-            '',
-            ''
-        ]
-    }, {
+    },
+    // {
+    //     generalDescription: 'a crisis',
+    //     specific: [
+    //         '',
+    //         '',
+    //         '',
+    //         '',
+    //
+    //         '',
+    //         '',
+    //         '',
+    //         '',
+    //
+    //         '',
+    //         '',
+    //         '',
+    //         ''
+    //     ]
+    // },
+    {
         generalDescription: 'nothing at all',
         specific: [
             'a sign post showing the party is going the right way',
-            '',
-
+            'a small washout that doesn\'t impede the way',
             'just the wind making odd noises',
             'a tree stump in the distance',
+
             'some boulders stacked oddly, but naturally',
             'a creek that\'s gurgling noisily',
-
-            '',
-            '',
-            '',
-            ''
+            // '',
+            // '',
+            //
+            // '',
+            // '',
+            // '',
+            // ''
         ]
     }
 ];
