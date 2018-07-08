@@ -34,7 +34,7 @@ export default class EncounterWithShuffle extends React.Component {
             motivation: this.motivationGenerator.next().value,
             spotting: this.spottingGenerator.next().value,
             general: character.generalDescription,
-            specific: character.specific[d20.roll(12) - 1],
+            specific: character.specific[d20.roll(character.specific.length) - 1],
             specifics: character.specific
         }
     }
