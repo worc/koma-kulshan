@@ -1,4 +1,5 @@
 import React from 'react';
+import { URLSearchParams } from 'url'
 
 import MinorMagicItemWithShuffle from './MinorMagicItemWithShuffle';
 
