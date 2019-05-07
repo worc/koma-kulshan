@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components'
 import { getFromShuffled } from "../util/Generators";
 
 const headers = [
@@ -15,55 +15,46 @@ const headers = [
     'meet here to check out the mountain view',
     'you will feel a lot better swimming here',
     'by and by... it is what it is... so it goes... ',
-    'not a good place to fall into the water'
-];
+    'not a good place to fall into the water',
+]
 
-export default class Header extends React.Component {
-    constructor(props) {
-        super(props);
+export default () => {
+    const [headline, setHeadline] = useState('')
+    const headerDeck = getFromShuffled(headers)
 
-        this.headerGenerator = getFromShuffled(headers);
+    useEffect(() => {
+        setHeadline(headerDeck.next().value)
+    })
 
-        this.state = {
-            headline: ''
-        };
-
-        this.style = {
-            fontSize: '0.8rem',
-            fontVariantCaps: 'all-small-caps',
-            letterSpacing: '0.1rem',
-            padding: '1px 10px',
-            textAlign: 'justify',
-        };
-
-        // this takes the place of an :after pseudo class that would trigger
-        // text-align: justify to work correctly
-
-        // after content to trigger justify:
-        // https://stackoverflow.com/a/43728929/769780
-
-        // pseudo classes in react:
-        // https://stackoverflow.com/questions/28269669/css-pseudo-elements-in-react
-        this.hackStyle = {
-            display: 'inline-block',
-            width: '100%'
-        }
-    }
-
-    componentDidMount() {
-        this.setState({ headline: this.headerGenerator.next().value });
-    }
-
-
-    render() {
-        return (
-            <header style={ this.style }>
-                <div>
-                    { this.state.headline }
-                    <div style={ this.hackStyle } />
-                </div>
-            </header>
-        )
-    }
-
+    return (
+      <Header>
+          <div>
+              { headline }
+              <Hack/>
+          </div>
+      </Header>
+    )
 }
+
+const Header = styled.header`
+  display: inline-block;
+  width: 100%;
+  font-size: 0.8rem;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.1rem;
+  padding: 1px 10px;
+  text-align: justify;
+`
+
+// this takes the place of an :after pseudo class that would trigger
+// text-align: justify to work correctly
+
+// after content to trigger justify:
+// https://stackoverflow.com/a/43728929/769780
+
+// pseudo classes in react:
+// https://stackoverflow.com/questions/28269669/css-pseudo-elements-in-react
+const Hack = styled.div`
+  display: inline-block;
+  width: 100%;
+`
