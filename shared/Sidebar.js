@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { NavLink, Switch, Route } from 'react-router-dom'
 
 export default () => (
-  <div>
+  <NavContainer>
       <TopNav>
           <StyledNavLink to="/encounter">Encounter</StyledNavLink>
           <StyledNavLink to="/trinkets">Trinkets</StyledNavLink>
@@ -32,8 +32,12 @@ export default () => (
               }}/>
           </Switch>
       </SubNav>
-  </div>
+  </NavContainer>
 )
+
+const NavContainer = styled.div`
+  margin: -12px -8px 4px;
+`
 
 const TopNav = styled.nav`
   display: flex;

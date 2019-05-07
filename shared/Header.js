@@ -42,7 +42,6 @@ const Header = styled.header`
   font-size: 0.8rem;
   font-variant-caps: all-small-caps;
   letter-spacing: 0.1rem;
-  padding: 1px 10px;
   text-align: justify;
 `
 
