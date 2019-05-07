@@ -5,14 +5,25 @@ import { createGlobalStyle } from 'styled-components'
 import App from './shared/App'
 
 const GlobalStyle = createGlobalStyle`
-  html, body, #app {
-    height: 100%;
-    margin: 0;
+  * {
     box-sizing: border-box;
+  }
+
+  html, body {
+    font-family: "Lato", sans-serif;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  #app {
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-flow: column nowrap;
-    font-family: "Lato", sans-serif;
-    padding: 0 10px;
+    margin: 0;
+    padding: 0 8px;
   }
 `
 
