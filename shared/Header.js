@@ -53,6 +53,9 @@ const Header = styled.header`
 
 // pseudo classes in react:
 // https://stackoverflow.com/questions/28269669/css-pseudo-elements-in-react
+
+// span or div pretends to be a really long word hack (what i'm using here):
+// https://stackoverflow.com/a/22950810/769780
 const Hack = styled.div`
   display: inline-block;
   width: 100%;
