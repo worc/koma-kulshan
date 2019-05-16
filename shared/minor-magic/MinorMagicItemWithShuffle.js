@@ -1,102 +1,88 @@
-import React from 'react';
-
+import React, { useState, useEffect } from 'react'
 import { getFromShuffled } from "../../util/Generators";
-
 import MinorMagicItem from './MinorMagicItem';
 import Reshuffle from '../Reshuffle';
 
-export default class MinorMagicItemWithShuffle extends React.Component {
-    constructor(props) {
-        super(props);
+const propertyInitialState = { prefix: '', suffix: '', description: '' }
 
-        this.propertiesGenerator = getFromShuffled(this.props.properties);
-        this.objectsGenerator = getFromShuffled(this.props.objects);
+export default ({ objects, properties, bookmark }) => {
+  const [firstProperty, setFirstProperty] = useState(propertyInitialState)
+  const [secondProperty, setSecondProperty] = useState(propertyInitialState)
+  const [name, setName] = useState('')
+  const [propertiesGenerator, setPropertiesGenerator] = useState()
+  const [objectsGenerator, setObjectsGenerator] = useState()
 
-        this.state = {
-            firstProperty: {},
-            secondProperty: {},
-            name: '',
-            objectsIndex: 0,
-            propertiesIndex: 0,
-            search: {
-                prefix: this.props.search.get('prefix'),
-                type: this.props.search.get('type'),
-                suffix: this.props.search.get('suffix')
-            }
-        };
+  useEffect(() => {
+    setPropertiesGenerator(getFromShuffled(properties))
+    setObjectsGenerator(getFromShuffled(objects))
+  }, [objects, properties])
+
+  // initialize properties only after the generator has been instantiated
+  useEffect(() => {
+    if (propertiesGenerator) {
+      const prefix = bookmark.prefix
+        ? properties.find(property => property.prefix.toLowerCase() === bookmark.prefix.toLowerCase())
+        : propertiesGenerator.next().value
+
+      const suffix = bookmark.suffix
+        ? properties.find(property => property.suffix.toLowerCase() === bookmark.suffix.toLowerCase())
+        : propertiesGenerator.next().value
+
+      setFirstProperty(prefix)
+      setSecondProperty(suffix)
     }
+  }, [propertiesGenerator, bookmark])
 
-    componentDidMount() {
-      let prefix = (this.state.search.prefix) ? this.props.properties.find(prop => {
-          return prop.prefix.toLowerCase() === this.state.search.prefix.toLowerCase();
-      }) : this.propertiesGenerator.next().value;
+  // likewise only try to initiate the name if the object generator has been instantiated
+  useEffect(() => {
+    if (objectsGenerator) {
+      const name = bookmark.name
+        ? objects.find(object => object.name.toLowerCase() === bookmark.name.toLowerCase()).name
+        : objectsGenerator.next().value.name
 
-      let type = (this.state.search.type) ? this.props.objects.find(thing => {
-          return thing.name.toLowerCase() === this.state.search.type.toLowerCase();
-      }) : this.objectsGenerator.next().value;
-
-      let suffix = (this.state.search.suffix) ? this.props.properties.find(prop => {
-          return prop.suffix.toLowerCase() === this.state.search.suffix.toLowerCase();
-      }) : this.propertiesGenerator.next().value;
-
-        this.setState({
-            firstProperty: prefix,
-            secondProperty: suffix,
-            name: type.name,
-        });
+      setName(name)
     }
+  }, [objectsGenerator])
 
-    componentWillReceiveProps() {
-        this.setState({
-            firstProperty: this.propertiesGenerator.next().value,
-            secondProperty: this.propertiesGenerator.next().value,
-            name: this.objectsGenerator.next().value.name,
-        });
+  useEffect(() => {
+
+  }, [bookmark])
+
+  function reshuffleHandler (event) {
+    switch (event.target.textContent) {
+      case 'prefix':
+        setFirstProperty(propertiesGenerator.next().value)
+        break
+      case 'suffix':
+        setSecondProperty(propertiesGenerator.next().value)
+        break
+      case 'type':
+        setName(objectsGenerator.next().value.name)
+        break
+      case 'reshuffle':
+        setFirstProperty(propertiesGenerator.next().value)
+        setSecondProperty(propertiesGenerator.next().value)
+        setName(objectsGenerator.next().value.name)
+        break
+      default:
+        console.error(`shuffle event type wasn't handled!`)
     }
+  }
 
-    reshuffleHandler(event) {
-        let newState = {};
-
-        switch (event.target.textContent) {
-            case 'prefix':
-                newState = { firstProperty: this.propertiesGenerator.next().value };
-                break;
-            case 'type':
-                newState = { name: this.objectsGenerator.next().value.name };
-                break;
-            case 'suffix':
-                newState = { secondProperty: this.propertiesGenerator.next().value };
-                break;
-            case 'reshuffle':
-                newState = {
-                    firstProperty: this.propertiesGenerator.next().value,
-                    secondProperty: this.propertiesGenerator.next().value,
-                    name: this.objectsGenerator.next().value.name,
-                };
-                break;
-            default:
-                console.warn('wtf...');
-        }
-
-        this.setState(newState);
-    }
-
-    render() {
-        return (
-            <div style={{ display: 'flex', flex: '1 0 auto', flexFlow: 'column'}}>
-                <MinorMagicItem
-                    style={{ flex: '1 0 auto' }}
-                    prefix={ this.state.firstProperty.prefix }
-                    suffix={ this.state.secondProperty.suffix }
-                    name={ this.state.name }
-                    firstDescription={ this.state.firstProperty.description }
-                    secondDescription={ this.state.secondProperty.description }
-                />
-                <Reshuffle
-                    reshuffleHandler={ this.reshuffleHandler.bind(this) }
-                    subShuffles={[ 'prefix', 'type', 'suffix' ]}
-                />
-            </div>
-        )
-    }
+  return (
+    <div style={{ display: 'flex', flex: '1 0 auto', flexFlow: 'column'}}>
+      <MinorMagicItem
+        style={{ flex: '1 0 auto' }}
+        prefix={ firstProperty.prefix }
+        suffix={ secondProperty.suffix }
+        name={ name }
+        firstDescription={ firstProperty.description }
+        secondDescription={ secondProperty.description }
+      />
+      <Reshuffle
+        reshuffleHandler={ reshuffleHandler }
+        subShuffles={[ 'prefix', 'type', 'suffix' ]}
+      />
+    </div>
+  )
 }
