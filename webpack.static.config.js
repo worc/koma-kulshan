@@ -3,6 +3,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const path = require('path')
 
 const NODE_ENV = process.env.NODE_ENV
+const STATIC_DIST = path.resolve(__dirname, '_static_dist')
 
 module.exports = {
   mode: NODE_ENV,
@@ -10,7 +11,7 @@ module.exports = {
   devtool: NODE_ENV === 'production' ? 'source-map' : 'eval',
 
   devServer: {
-    contentBase: 'dist/',
+    contentBase: STATIC_DIST,
     historyApiFallback: true,
   },
 
@@ -47,5 +48,6 @@ module.exports = {
 
   output: {
     publicPath: '/',
+    path: STATIC_DIST,
   },
 }
