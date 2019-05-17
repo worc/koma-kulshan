@@ -12,7 +12,7 @@ export default [
     {
         generalDescription: 'an individual',
         specific: [
-
+            'a human male in a long black cloak, limping a little'
         ]
     },
     {
