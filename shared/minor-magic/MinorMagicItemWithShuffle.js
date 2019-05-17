@@ -72,7 +72,6 @@ export default ({ objects, properties, bookmark }) => {
   return (
     <div style={{ display: 'flex', flex: '1 0 auto', flexFlow: 'column'}}>
       <MinorMagicItem
-        style={{ flex: '1 0 auto' }}
         prefix={ firstProperty.prefix }
         suffix={ secondProperty.suffix }
         name={ name }
