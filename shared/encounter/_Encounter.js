@@ -11,7 +11,6 @@ export default ({ match }) => {
         case 'in-the-desert':
             return (<EncounterWithShuffle characters={ desertCharacters }/>)
         default:
-            console.warn('still havent figured out the root route');
-            return (<div>hm...</div>)
+            return null
     }
 }
