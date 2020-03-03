@@ -1,6 +1,6 @@
 import React from 'react';
 
-import d20 from '../../util/d20';
+import d20 from '../util/d20';
 import { getFromShuffled } from "../util/Generators";
 import { directions, motivations, spottingD2 } from "./Circumstances";
 
