@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { getFromShuffled } from "../../util/Generators";
+import { getFromShuffled } from "../util/Generators";
 import MinorMagicItem from './MinorMagicItem';
-import Reshuffle from '../Reshuffle';
+import Reshuffle from '../util/Reshuffle';
 
 const propertyInitialState = { prefix: '', suffix: '', description: '' }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components'
-import Trinkets from './Trinkets';
+import Trinkets from './trinkets/Trinkets';
 import MinorMagic from './minor-magic/_MinorMagic';
 import Encounter from './encounter/_Encounter';
 

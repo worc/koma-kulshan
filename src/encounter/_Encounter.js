@@ -1,7 +1,7 @@
 import React from 'react';
 
-import desertCharacters from '../../encounters/in-the-desert'
-import roadCharacters from '../../encounters/on-the-road.mjs';
+import desertCharacters from './descriptions/in-the-desert'
+import roadCharacters from './descriptions/on-the-road';
 import EncounterWithShuffle from "./EncounterWithShuffle";
 
 export default ({ match }) => {

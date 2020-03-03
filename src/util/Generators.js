@@ -1,6 +1,6 @@
-import shuffle from "../shuffle.mjs";
+import shuffle from "./shuffle";
 
-function *getFromShuffled(list) {
+function * getFromShuffled (list) {
     let index = 0;
     shuffle(list);
 
@@ -14,7 +14,7 @@ function *getFromShuffled(list) {
     }
 }
 
-function *drainFromShuffled(list) {
+function * drainFromShuffled (list) {
     shuffle(list);
 
     while(list.length > 0) {

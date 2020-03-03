@@ -1,11 +1,11 @@
 import React from 'react';
 import MinorMagicItemWithShuffle from './MinorMagicItemWithShuffle';
-import armors from '../../things/armors.mjs';
-import items from '../../things/items.mjs';
-import { weaponsFlatList } from '../../things/weapons.mjs';
-import minorMagicArmorProps from '../../properties/minor-magic-armor-properties.mjs';
-import minorMagicItemProps from '../../properties/minor-magic-item-properties.mjs';
-import minorMagicWeaponProps from '../../properties/minor-magic-weapon-properties.mjs';
+import armors from './things/armors.js';
+import items from './things/items.js';
+import { weaponsFlatList } from './things/weapons.js';
+import minorMagicArmorProps from './properties/minor-magic-armor-properties.js';
+import minorMagicItemProps from './properties/minor-magic-item-properties.js';
+import minorMagicWeaponProps from './properties/minor-magic-weapon-properties.js';
 
 const wellStructuredItems = items.map(item => ({ name: item }))
 

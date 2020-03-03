@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
-import { getFromShuffled } from "../util/Generators";
+import { getFromShuffled } from "./util/Generators";
 
 const headers = [
     'thunder rolling to higher mountainsides',

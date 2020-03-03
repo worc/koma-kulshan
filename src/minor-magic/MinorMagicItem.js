@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Reveal from "../Reveal"
+import Reveal from "../util/Reveal"
 
 export default ({ prefix, name, suffix, firstDescription, secondDescription }) => (
   <ItemContainer>

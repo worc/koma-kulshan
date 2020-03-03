@@ -1,11 +1,11 @@
 import React from 'react';
+
 import d20 from '../../util/d20';
+import { getFromShuffled } from "../util/Generators";
+import { directions, motivations, spottingD2 } from "./Circumstances";
 
-import { getFromShuffled } from "../../util/Generators";
-import { directions, motivations, spottingD2 } from "../../encounters/Circumstances";
-
-import Reveal from '../Reveal';
-import Reshuffle from '../Reshuffle';
+import Reveal from '../util/Reveal';
+import Reshuffle from '../util/Reshuffle';
 
 export default class EncounterWithShuffle extends React.Component {
     constructor(props) {

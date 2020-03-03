@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import Confuse from '../util/Confuse';
+import Bamboozle from 'bamboozle'
 
 export default ({ reveal }) => {
   const [currentReveal, setCurrentReveal] = useState()
 
   useEffect(() => {
-    const confuser = new Confuse(message => setCurrentReveal(message), reveal, {
-      // todo let Confuse handle arrays of characters
-      // todo fix Confuse memory leak?
-      // use bamboozle npm package directly
+    const confuser = new Bamboozle(status => {
+      setCurrentReveal(status.message)
+    }, reveal, {
       characters: [
         '▀▁▂▃▄▅▆▇█▉▊▋▌▍▎', // U+258x
         '▐░▒▓▔▕▖▗▘▙▚▛▜▝▞▟', // U+259x
@@ -17,12 +16,12 @@ export default ({ reveal }) => {
       speed: 50,
     })
 
-    confuser.loop(750).resolve(750)
+    confuser.start()
+    confuser.reveal(1100)
 
     return () => {
-      confuser.pause()
+      confuser.stop()
     }
-
   }, [reveal])
 
   return <span>{ currentReveal }</span>

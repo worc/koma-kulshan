@@ -1,6 +1,6 @@
 import React from 'react';
 
-import shuffle from '../../shuffle.mjs';
+import shuffle from '../util/shuffle.js';
 
 import MinorMagicItem from './MinorMagicItem';
 
