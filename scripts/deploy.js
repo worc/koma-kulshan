@@ -1,8 +1,14 @@
 const fs = require('fs')
 const path = require('path')
 const AWS = require('aws-sdk')
-const credentials = new AWS.SharedIniFileCredentials({ profile: 'altair' })
-AWS.config.credentials = credentials
+
+const PROJECT_NAME = 'koma-kulshan'
+
+if (!process.env.AWS_ACCESS_KEY_ID && !process.env.AWS_SECRET_ACCESS_KEY) {
+  const credentials = new AWS.SharedIniFileCredentials({ profile: PROJECT_NAME })
+  AWS.config.credentials = credentials
+}
+
 const s3 = new AWS.S3({ apiVersion: '2006-03-01' })
 
 function withTryCatch (awsOp) {
@@ -180,7 +186,7 @@ async function uploadDirectoryToBucket ({ directory, Bucket, bucketSubdirectory 
   await uploadDirectory({ directory, Bucket, bucketSubdirectory })
 }
 
-uploadDirectoryToBucket({ directory: path.join(__dirname, '../dist'), Bucket: 'koma-kulshan' }).then(() => {
+uploadDirectoryToBucket({ directory: path.join(__dirname, '../dist'), Bucket: PROJECT_NAME }).then(() => {
   console.log('dist uploaded successfully')
 }).catch(error => {
   console.error('dist deployment encountered an error:\n')
