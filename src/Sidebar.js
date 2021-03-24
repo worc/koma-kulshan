@@ -8,6 +8,7 @@ export default () => (
           <StyledNavLink to="/encounter">Encounter</StyledNavLink>
           <StyledNavLink to="/trinkets">Trinkets</StyledNavLink>
           <StyledNavLink to='/minor-magic'>Minor Magic</StyledNavLink>
+          <StyledNavLink to='/voices'>Voices</StyledNavLink>
       </TopNav>
       <SubNav>
           <Switch>
