@@ -1,58 +1,55 @@
-import React from 'react';
+import React from 'react'
+import styled from 'styled-components'
 
-const containerStyle = {
-    cursor: 'pointer',
-    display: 'flex',
-    flex: '0 0 auto',
-    flexFlow: 'row wrap',
-    fontVariantCaps: 'all-small-caps',
-    letterSpacing: '0.2rem',
-    margin: '0 -10px',
-};
+const Container = styled.div`
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.2rem;
+  margin: 0 -8px;
+`
 
-const buttonStyle = {
-    alignItems: 'center',
-    border: '1px solid black',
-    display: 'flex',
-    flex: '1 0 auto',
-    height: '3rem',
-    justifyContent: 'center',
-    padding: '0 10px'
-};
+const ReshuffleButton = styled.div`
+  align-items: center;
+  background-color: #8d88df;
+  border: 1px solid black;
+  color: white;
+  display: flex;
+  height: 2.5rem;
+  justify-content: center;
+  line-height: 1;
+`
 
-const reshuffleStyle = {
-    backgroundColor: '#8d88df',
-    boxSizing: 'border-box',
-    color: '#fff',
-    flex: '1 0 100%'
-};
+const SubShufflesGroup = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+`
 
-const subShufflesGroupStyle = {
-    display: 'flex',
-    flexFlow: 'row wrap',
-    justifyContent: 'space-around',
-    width: '100%'
-};
+const SubShuffle = styled.div`
+  align-items: center;
+  background-color: #ace;
+  border: 1px solid black;
+  display: flex;
+  flex: 1 0 auto;
+  height: 2.5rem;
+  justify-content: center;
+  line-height: 1;
+  padding: 0 10px;
+`
 
-const subShuffleButtonStyle = {
-    backgroundColor: '#ace',
-};
+const Reshuffle = ({ reshuffleHandler, subShuffles }) => (
+  <Container onClick={ reshuffleHandler }>
+    <ReshuffleButton>reshuffle</ReshuffleButton>
+    <SubShufflesGroup>
+      {
+        subShuffles.map((sub, i) => (
+          <SubShuffle key={i}>
+            {sub}
+          </SubShuffle>
+        ))
+      }
+    </SubShufflesGroup>
+  </Container>
+)
 
-export default ({reshuffleHandler, subShuffles}) => {
-    return (
-        <div style={ containerStyle } onClick={ reshuffleHandler }>
-            <div style={{ ...buttonStyle, ...reshuffleStyle }}><span>reshuffle</span></div>
-            <div style={ subShufflesGroupStyle }>
-                {
-                    subShuffles.map((sub, i) => {
-                        return (<div
-                                    key={i}
-                                    style={{ ...buttonStyle, ...subShuffleButtonStyle }}>
-                                    <span>{sub}</span>
-                                </div>)
-                    })
-                }
-            </div>
-        </div>
-    )
-}
+export default Reshuffle
