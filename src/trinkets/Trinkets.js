@@ -5,7 +5,7 @@ import shuffle from '../util/shuffle';
 
 export default () => {
     shuffle(descriptions);
-    let list = descriptions.slice(0, 7);
+    let list = descriptions.slice(0, 12);
 
     return (
         <ul>

@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const AWS = require('aws-sdk')
-const credentials = new AWS.SharedIniFileCredentials({ profile: 'reuben.report' })
+const credentials = new AWS.SharedIniFileCredentials({ profile: 'altair' })
 AWS.config.credentials = credentials
 const s3 = new AWS.S3({ apiVersion: '2006-03-01' })
 
@@ -180,7 +180,7 @@ async function uploadDirectoryToBucket ({ directory, Bucket, bucketSubdirectory 
   await uploadDirectory({ directory, Bucket, bucketSubdirectory })
 }
 
-uploadDirectoryToBucket({ directory: path.join(__dirname, '../dist'), Bucket: 'reuben.report' }).then(() => {
+uploadDirectoryToBucket({ directory: path.join(__dirname, '../dist'), Bucket: 'koma-kulshan' }).then(() => {
   console.log('dist uploaded successfully')
 }).catch(error => {
   console.error('dist deployment encountered an error:\n')
