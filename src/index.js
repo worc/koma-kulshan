@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
 render(
   <React.Fragment>
     <GlobalStyle/>
-    <BrowserRouter>
+    <BrowserRouter basename="/projects/koma-kulshan">
       <App/>
     </BrowserRouter>
   </React.Fragment>

@@ -22,7 +22,7 @@ export default () => (
               }
               }/>
 
-              <Route path='/minor-magic' render={() => {
+              <Route path='minor-magic' render={() => {
                   return (
                       <React.Fragment>
                           <StyledNavLink to='/minor-magic/armor'>Armor</StyledNavLink>
